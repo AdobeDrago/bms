@@ -1,0 +1,42 @@
+{
+  "variantName": "cards-related",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-16T08:03:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/life-and-science/people/pharmd-program.html",
+    "originPage": "people story article page",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "related-articles",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "3 cards + image + heading link",
+    "buttonCount": 0,
+    "imageCount": 3
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "related articles sections on story pages",
+      "recommended reading grids",
+      "article listing cards with images and titles",
+      "people story related content sections",
+      "news article cross-promotion"
+    ],
+    "notSuitableFor": [
+      "featured content with descriptions",
+      "mosaic or asymmetric grid layouts",
+      "cards without images",
+      "promotional or campaign card sections"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/life-and-science/people/pharmd-program", "/life-and-science/science/accelerating-innovation-in-cancer-research-and-patient-care", "/life-and-science/patients/meet-lorena"],
+    "reuseCount": 3,
+    "lastUsed": "2026-05-16T08:06:00.000Z"
+  }
+}

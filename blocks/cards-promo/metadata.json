@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-promo",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-16T07:15:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/about-us/our-company.html",
+    "originPage": "corporate info page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "mixed",
+    "density": "spacious",
+    "purpose": "promo-feature",
+    "imagePattern": "mixed"
+  },
+  "contentPattern": {
+    "structure": "2 cards: 1 solid-color text card + 1 image card",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "corporate promo sections with mixed card types",
+      "feature highlight pairs with one text-focused and one image-focused card",
+      "branded section callouts with colored backgrounds"
+    ],
+    "notSuitableFor": [
+      "large grids of many uniform cards",
+      "mosaic or gallery layouts",
+      "cards that all have the same structure"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/about-us/our-company"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-16T07:15:00.000Z"
+  }
+}

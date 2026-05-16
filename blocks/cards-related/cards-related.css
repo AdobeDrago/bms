@@ -1,0 +1,135 @@
+/* cards-related - Related article cards with image overlay titles at bottom of articles */
+
+/* Section heading - "RELATED ARTICLES" */
+.cards-related-container h2 {
+  font-size: var(--heading-font-size-l);
+  font-weight: 300;
+  font-family: var(--heading-font-family);
+  color: var(--brand-magenta);
+  margin: 0 0 20px;
+}
+
+/* Card grid - converted to ul > li by JS */
+.cards-related > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Individual card */
+.cards-related > ul > li {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--black);
+}
+
+/* Card link - make entire card clickable */
+.cards-related > ul > li a:any-link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: var(--white);
+}
+
+/* Card image */
+.cards-related .cards-related-card-image {
+  line-height: 0;
+}
+
+.cards-related > ul > li img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.cards-related > ul > li:hover img {
+  transform: scale(1.03);
+}
+
+/* Card body - title overlay at bottom of image */
+.cards-related .cards-related-card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 60px 25px 15px;
+  background: linear-gradient(
+    rgb(0 0 0 / 0%),
+    rgb(0 0 0 / 60%) 50%,
+    rgb(0 0 0 / 60%) 90%
+  );
+  z-index: 1;
+}
+
+.cards-related .cards-related-card-body p {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--heading-font-family);
+  color: var(--white);
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* Reset button styling for links inside cards */
+.cards-related .cards-related-card-body a.button:any-link {
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: var(--white);
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  white-space: normal;
+  display: inline;
+}
+
+/* Arrow indicator for card links */
+.cards-related .cards-related-card-body p::after {
+  content: " \2192";
+  font-size: 14px;
+}
+
+@media (width >= 600px) {
+  .cards-related > ul {
+    flex-flow: row wrap;
+  }
+
+  .cards-related > ul > li {
+    flex: 1 1 calc(50% - 3px);
+    min-width: 0;
+  }
+
+  .cards-related > ul > li img {
+    height: 300px;
+  }
+}
+
+@media (width >= 900px) {
+  .cards-related-container h2 {
+    font-size: 44px;
+    margin: 0 0 30px;
+  }
+
+  .cards-related > ul {
+    flex-wrap: nowrap;
+  }
+
+  .cards-related > ul > li {
+    flex: 1 1 0;
+  }
+
+  .cards-related > ul > li img {
+    height: 350px;
+  }
+
+  .cards-related .cards-related-card-body {
+    padding: 100px 25px 15px;
+  }
+}

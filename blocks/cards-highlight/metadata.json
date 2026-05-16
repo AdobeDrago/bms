@@ -1,0 +1,42 @@
+{
+  "variantName": "cards-highlight",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-16T07:12:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/about-us.html",
+    "originPage": "section landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "highlight-cards",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "2 cards + image + heading link",
+    "buttonCount": 0,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "section landing pages with 2-3 featured linked cards",
+      "commitment or initiative highlights",
+      "topic navigation cards with large images"
+    ],
+    "notSuitableFor": [
+      "large grids of many cards",
+      "mosaic or gallery layouts",
+      "cards without images"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/about-us",
+      "/about-us/our-company"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-05-16T07:14:53.681240Z"
+  }
+}

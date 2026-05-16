@@ -1,0 +1,56 @@
+- [Bristol Myers Squibb](/)
+
+---
+
+- **Patients & caregivers**
+  - [Our medicines](/patient-and-caregivers/our-medicines)
+  - [Survivorship Today](/patient-and-caregivers/survivorship-today)
+  - [Patient resources](/patient-and-caregivers/patient-resources-by-condition)
+  - [Clinical trial summaries](/patient-and-caregivers/plain-language-summary)
+  - [Get help paying for your medicines](/patient-and-caregivers/get-help-paying-for-your-medicines)
+  - [CAR T cell therapy resources](/patient-and-caregivers/car-t-cell-therapy-patient-resources)
+  - [REMS information](/patient-and-caregivers/risk-evaluation-and-mitigation-strategies)
+- **Healthcare providers**
+  - [Early patient access](/healthcare-providers/early-patient-access-to-investigational-medicine)
+  - [DoctoRx Unscripted](/healthcare-providers/doctorx-unscripted-bold-conversations-about-patient-driven-science)
+  - [Post-study drug access](/healthcare-providers/post-study-drug-access)
+  - [Champions in Care](/healthcare-providers/champions-in-care)
+  - [Time Back campaign](/healthcare-providers/time-back-campaign-honoring-oncologists-in-cancer-care)
+- **Researchers**
+  - [Areas of focus](/researchers-and-partners/areas-of-focus)
+  - [In the pipeline](/researchers-and-partners/in-the-pipeline)
+  - [Clinical trials and research](/researchers-and-partners/clinical-trials-and-research)
+  - [Independent research](/researchers-and-partners/independent-research)
+  - [Patient safety](/researchers-and-partners/patient-safety)
+- **Investors**
+  - [Stock information](/investors/stock-information)
+  - [Financial reporting](/investors/financial-reporting)
+  - [Analyst coverage](/investors/analyst-coverage)
+  - [Events and presentations](/investors/events-and-presentations)
+  - [Shareholder services](/investors/shareholder-services)
+  - [Investor contacts](/investors/investor-contacts)
+- **Business development**
+  - [Existing partners](/business-development/existing-partners)
+  - [Why partner with us](/business-development/why-partner-with-us)
+  - [Science and technology areas of interest](/business-development/science-and-technology-areas-of-interest)
+  - [Partnering leadership team](/business-development/partnering-leadership-team)
+  - [Early innovation](/business-development/early-innovation)
+  - [Begin a discussion](/business-development/begin-discussion)
+- **News & media**
+  - [Press releases](/media/press-releases)
+  - [Our stories](/life-and-science)
+  - [Media library](/media/media-library)
+  - [Media contacts](/media/media-contacts)
+- **About us**
+  - [Our company](/about-us/our-company)
+  - [Leadership](/about-us/leadership)
+  - [Our science](/about-us/our-science)
+  - [Global diversity and inclusion](/about-us/global-diversity-and-inclusion)
+  - [Our impact](/about-us/our-impact)
+  - [Working at BMS](/about-us/working-at-bms)
+  - [Contact us](/about-us/contact-us)
+
+---
+
+- [Contact us](/about-us/contact-us)
+- [Careers](https://careers.bms.com)

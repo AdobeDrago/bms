@@ -1,0 +1,40 @@
+{
+  "variantName": "cards-listing",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-16T08:05:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/life-and-science.html",
+    "originPage": "Stories listing hub page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "article-listing",
+    "imagePattern": "small"
+  },
+  "contentPattern": {
+    "structure": "filter dropdowns + paginated list with thumbnail + category tag + title + date + excerpt",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "article listing pages with filter and pagination",
+      "stories hub pages with filterable content",
+      "news listing pages with topic/date filters",
+      "blog index pages with load-more pagination"
+    ],
+    "notSuitableFor": [
+      "featured content grids with large image overlays",
+      "product listing pages",
+      "simple card grids without filtering"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/life-and-science", "/media/media-library/scientific-media-resources"],
+    "reuseCount": 2,
+    "lastUsed": "2026-05-16T09:20:00.000Z"
+  }
+}

@@ -1,0 +1,107 @@
+/* columns-bio: Executive biography layout with portrait left, bio text right */
+
+.columns-bio {
+  padding: 30px 0 0;
+}
+
+.columns-bio > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image column */
+.columns-bio > div > .columns-bio-img-col {
+  order: 0;
+  margin: 0 0 30px;
+}
+
+.columns-bio > div > .columns-bio-img-col img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Text column */
+.columns-bio > div > div {
+  order: 1;
+}
+
+/* Name heading */
+.columns-bio h3 {
+  color: var(--text-color);
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 32px;
+  margin: 0;
+}
+
+/* Job title */
+.columns-bio h5 {
+  color: var(--text-color);
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+  padding: 0 0 24px;
+}
+
+/* Bio paragraphs */
+.columns-bio p {
+  color: var(--text-color);
+  font-family: var(--heading-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  margin: 0;
+  padding: 0 0 24px;
+}
+
+/* Quote styling (italicized paragraphs) */
+.columns-bio p em {
+  font-style: italic;
+}
+
+/* Button reset for links in bio */
+.columns-bio .button-container {
+  display: inline;
+}
+
+.columns-bio a.button:any-link {
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: var(--link-color);
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 0;
+  margin: 0;
+  text-decoration: underline;
+  white-space: normal;
+}
+
+@media (width >= 900px) {
+  .columns-bio > div {
+    flex-direction: row;
+    gap: 0;
+    align-items: flex-start;
+  }
+
+  .columns-bio > div > .columns-bio-img-col {
+    flex: 0 0 50%;
+    margin: 0 15px 30px 0;
+    order: unset;
+  }
+
+  .columns-bio > div > div {
+    flex: 1;
+    order: unset;
+  }
+
+  .columns-bio h3 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+}

@@ -1,0 +1,156 @@
+/* cards-listing - Article listing grid with image + text cards */
+
+/* Card grid - converted to ul > li by JS */
+.cards-listing > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Individual card list item */
+.cards-listing > ul > li {
+  border-bottom: 1px solid var(--brand-light-gray);
+  padding: 24px 0;
+  background-color: var(--background-color);
+}
+
+.cards-listing > ul > li:first-child {
+  padding-top: 0;
+}
+
+.cards-listing > ul > li:last-child {
+  border-bottom: none;
+}
+
+/* Card image */
+.cards-listing .cards-listing-card-image {
+  line-height: 0;
+  margin-bottom: 12px;
+}
+
+.cards-listing > ul > li img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card body / text content */
+.cards-listing .cards-listing-card-body {
+  padding: 0;
+}
+
+/* Card title (h3 or first heading) */
+.cards-listing .cards-listing-card-body h3 {
+  font-size: 20px;
+  font-weight: 400;
+  font-family: var(--heading-font-family);
+  color: var(--text-color);
+  line-height: 24px;
+  margin: 0 0 8px;
+}
+
+/* Card description */
+.cards-listing .cards-listing-card-body p {
+  font-size: var(--body-font-size-s);
+  font-family: var(--heading-font-family);
+  color: var(--text-color);
+  line-height: 20px;
+  margin: 0 0 12px;
+}
+
+/* Read more link */
+.cards-listing .cards-listing-card-body a:any-link {
+  font-size: var(--body-font-size-xs);
+  font-weight: 400;
+  color: var(--brand-purple);
+  text-decoration: none;
+}
+
+.cards-listing .cards-listing-card-body a:hover {
+  color: var(--brand-magenta);
+  text-decoration: underline;
+}
+
+/* Reset button styling for links inside cards */
+.cards-listing .cards-listing-card-body a.button:any-link {
+  background: none;
+  border: none;
+  border-radius: 0;
+  font-size: var(--body-font-size-xs);
+  font-weight: 400;
+  color: var(--brand-purple);
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  white-space: normal;
+  display: inline;
+}
+
+.cards-listing .cards-listing-card-body a.button:hover {
+  color: var(--brand-magenta);
+  text-decoration: underline;
+  background: none;
+}
+
+/* Date/category metadata */
+.cards-listing .cards-listing-card-body .cards-listing-card-date {
+  font-size: var(--body-font-size-xs);
+  color: var(--brand-gray);
+  margin-bottom: 4px;
+}
+
+.cards-listing .cards-listing-card-body .cards-listing-card-category a:any-link {
+  font-size: var(--body-font-size-xs);
+  color: var(--brand-purple);
+}
+
+/* Hover effect on card */
+.cards-listing > ul > li:hover .cards-listing-card-body h3 {
+  color: var(--brand-magenta);
+}
+
+@media (width >= 600px) {
+  /* Side-by-side layout: image left, text right */
+  .cards-listing > ul > li {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .cards-listing .cards-listing-card-image {
+    flex: 0 0 30%;
+    margin-bottom: 0;
+  }
+
+  .cards-listing > ul > li img {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .cards-listing .cards-listing-card-body {
+    flex: 0 1 70%;
+    padding: 0 30px;
+  }
+}
+
+@media (width >= 900px) {
+  .cards-listing > ul > li {
+    padding: 28px 0;
+  }
+
+  .cards-listing .cards-listing-card-body h3 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .cards-listing .cards-listing-card-body p {
+    font-size: var(--body-font-size-s);
+    line-height: 20px;
+  }
+}

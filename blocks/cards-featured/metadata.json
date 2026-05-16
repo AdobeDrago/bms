@@ -1,0 +1,40 @@
+{
+  "variantName": "cards-featured",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-16T07:15:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/",
+    "originPage": "BMS corporate homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "featured-content",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + heading + optional description + link",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "homepage featured content grids",
+      "story highlight sections",
+      "article promotion cards",
+      "landing page content previews"
+    ],
+    "notSuitableFor": [
+      "text-only card layouts",
+      "product listing cards",
+      "small icon-based cards"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index", "/life-and-science"],
+    "reuseCount": 2,
+    "lastUsed": "2026-05-16T08:05:00.000Z"
+  }
+}

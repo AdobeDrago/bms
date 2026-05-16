@@ -1,0 +1,115 @@
+/* accordion-transcript - Collapsible transcript section below video */
+
+.accordion-transcript {
+  max-width: 1088px;
+  margin: 0 auto;
+}
+
+/* Individual accordion item */
+.accordion-transcript details {
+  border: 1px solid var(--brand-light-gray);
+  margin-bottom: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.accordion-transcript details + details {
+  border-top: 0;
+}
+
+/* Summary / toggle header */
+.accordion-transcript details summary {
+  position: relative;
+  padding: 16px 48px 16px 16px;
+  cursor: pointer;
+  list-style: none;
+  overflow: auto;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-color);
+  line-height: 1.4;
+  transition: background-color 0.2s;
+}
+
+.accordion-transcript details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Hover/focus state */
+.accordion-transcript details summary:focus,
+.accordion-transcript details summary:hover {
+  background-color: var(--light-color);
+}
+
+/* Open state header background */
+.accordion-transcript details[open] summary {
+  background-color: var(--light-color);
+  border-bottom: 1px solid var(--brand-light-gray);
+}
+
+/* Chevron indicator */
+.accordion-transcript details summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%) rotate(135deg);
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--brand-purple);
+  border-width: 2px 2px 0 0;
+  transition: transform 0.2s;
+}
+
+.accordion-transcript details[open] summary::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+/* Accordion body content */
+.accordion-transcript details .accordion-transcript-item-body {
+  padding: 16px;
+  background-color: var(--background-color);
+}
+
+.accordion-transcript details .accordion-transcript-item-body p {
+  margin-top: 0;
+  margin-bottom: 0.8em;
+  font-size: var(--body-font-size-s);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.accordion-transcript details .accordion-transcript-item-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Timestamp/speaker labels often bold */
+.accordion-transcript details .accordion-transcript-item-body strong {
+  font-weight: 700;
+  color: var(--brand-purple);
+}
+
+/* Reset button styling for any links inside accordion */
+.accordion-transcript a.button:any-link {
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: var(--link-color);
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 0;
+  margin: 0;
+  text-decoration: underline;
+  white-space: normal;
+}
+
+@media (width >= 900px) {
+  .accordion-transcript details summary {
+    padding: 18px 52px 18px 20px;
+    font-size: 20px;
+  }
+
+  .accordion-transcript details .accordion-transcript-item-body {
+    padding: 20px 24px;
+  }
+}

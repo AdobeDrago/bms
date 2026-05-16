@@ -1,0 +1,40 @@
+{
+  "variantName": "columns-callout",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-05-16T09:18:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/patient-and-caregivers/our-medicines.html",
+    "originPage": "medicines directory page with adverse event reporting callout boxes",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "callout-reporting",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "heading + paragraph + phone number link",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "side-by-side callout boxes with contact info",
+      "dual reporting/contact sections",
+      "bordered information panels",
+      "adverse event reporting layouts"
+    ],
+    "notSuitableFor": [
+      "image-heavy side-by-side layouts",
+      "bio/profile columns",
+      "promotional columns with CTAs"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/patient-and-caregivers/our-medicines", "/patient-and-caregivers/get-help-paying-for-your-medicines"],
+    "reuseCount": 2,
+    "lastUsed": "2026-05-16T09:17:00.000Z"
+  }
+}

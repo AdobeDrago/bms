@@ -1,0 +1,42 @@
+{
+  "variantName": "cards-mosaic",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-16T07:12:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/about-us.html",
+    "originPage": "section landing page",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "compact",
+    "purpose": "impact-mosaic",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "10 cards + image + heading link + optional description",
+    "buttonCount": 0,
+    "imageCount": 10
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "section landing pages with many topic cards on dark backgrounds",
+      "mosaic or gallery-style card grids",
+      "impact or responsibility topic navigation"
+    ],
+    "notSuitableFor": [
+      "light background card grids",
+      "small number of cards (2-3)",
+      "cards without images"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/about-us",
+      "/about-us/our-company"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-05-16T07:14:53.681240Z"
+  }
+}

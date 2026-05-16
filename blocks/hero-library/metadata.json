@@ -1,0 +1,40 @@
+{
+  "variantName": "hero-library",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-05-16T09:20:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/media/media-library/scientific-media-resources.html",
+    "originPage": "media resource library page",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "accent",
+    "density": "minimal",
+    "purpose": "library-hero",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "heading + paragraph",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "media library and resource hub pages",
+      "section landing pages with colored gradient backgrounds",
+      "pages with simple heading + description hero without background images",
+      "category listing pages with accent-colored banners"
+    ],
+    "notSuitableFor": [
+      "hero sections with background images or photos",
+      "campaign landing pages with CTA buttons",
+      "article pages with hero images"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/media/media-library/scientific-media-resources"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-16T09:20:00.000Z"
+  }
+}

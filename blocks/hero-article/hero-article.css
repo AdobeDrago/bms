@@ -1,0 +1,150 @@
+/* hero-article - Article hero with full-width background image, category label, and title */
+
+/* Full-width wrapper override */
+.hero-article-container .hero-article-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/* Block container */
+.hero-article {
+  position: relative;
+  min-height: 280px;
+  overflow: hidden;
+}
+
+/* Hide default row/cell structure divs */
+.hero-article > div {
+  position: static;
+}
+
+/* Background image: picture in first cell */
+.hero-article picture {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+}
+
+.hero-article img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Gradient overlay for text readability */
+.hero-article::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 0%) 20%,
+    rgb(0 0 0 / 40%) 60%,
+    rgb(0 0 0 / 60%) 100%
+  );
+  pointer-events: none;
+}
+
+/* Text content overlay */
+.hero-article > div > div:last-child {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 280px;
+  padding: 40px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Category label (first p or div inside text cell) */
+.hero-article > div > div:last-child p:first-child {
+  font-family: var(--heading-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--white);
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+/* Article title (h1) */
+.hero-article h1 {
+  font-size: 24px;
+  font-weight: 400;
+  font-family: var(--heading-font-family);
+  line-height: 1.25;
+  color: var(--white);
+  margin: 0;
+  padding: 0 0 10px;
+}
+
+/* stylelint-disable no-descending-specificity */
+
+/* Override heading color from globals */
+.hero-article h1,
+.hero-article h2,
+.hero-article h3,
+.hero-article h4,
+.hero-article h5,
+.hero-article h6,
+.hero-article p {
+  color: var(--white);
+}
+
+/* No-image variant */
+.hero-article.no-image {
+  background-color: var(--light-color);
+}
+
+.hero-article.no-image::after {
+  display: none;
+}
+
+.hero-article.no-image h1,
+.hero-article.no-image h2,
+.hero-article.no-image h3,
+.hero-article.no-image h4,
+.hero-article.no-image h5,
+.hero-article.no-image h6,
+.hero-article.no-image p {
+  color: var(--text-color);
+}
+
+/* stylelint-enable no-descending-specificity */
+
+.hero-article.no-image h1 {
+  color: var(--heading-color, var(--brand-magenta));
+}
+
+/* Reset button styling for any links inside hero */
+.hero-article a.button:any-link {
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: var(--white);
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 0;
+  margin: 0;
+  text-decoration: underline;
+  white-space: normal;
+}
+
+@media (width >= 900px) {
+  .hero-article {
+    min-height: 500px;
+  }
+
+  .hero-article > div > div:last-child {
+    min-height: 500px;
+    padding: 60px 56px;
+  }
+
+  .hero-article h1 {
+    font-size: 32px;
+    line-height: 40px;
+    max-width: 700px;
+  }
+}

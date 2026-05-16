@@ -1,0 +1,41 @@
+{
+  "variantName": "cards-explore",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-16T09:20:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/media/media-library/scientific-media-resources.html",
+    "originPage": "media resource library page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "topic-mosaic",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "6 cards: image + heading link overlay, asymmetric mosaic layout",
+    "buttonCount": 0,
+    "imageCount": 6
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "featured topic navigation grids on light backgrounds",
+      "asymmetric mosaic image card grids with overlay text",
+      "media library category exploration sections",
+      "resource hub featured content grids"
+    ],
+    "notSuitableFor": [
+      "dark background mosaic grids",
+      "uniform grid card layouts",
+      "text-only card sections without images",
+      "standard equal-size card grids"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/media/media-library/scientific-media-resources"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-16T09:20:00.000Z"
+  }
+}

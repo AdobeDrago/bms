@@ -1,0 +1,35 @@
+:root {
+  /* Brand Fonts */
+  --heading-font-family: "BMSHumanity", serif;
+  --body-font-family: "BMSHumanityNw", sans-serif;
+
+  /* Brand Colors */
+  --background-color: #fff;
+  --text-color: #4f4a4a;
+  --heading-color: #be2bbb;
+  --link-color: #80276c;
+  --link-hover-color: #be2bbb;
+  --brand-purple: #80276c;
+  --brand-magenta: #be2bbb;
+  --brand-dark-purple: #3e1057;
+  --brand-tan: #f0efea;
+  --brand-cream: #faf9f5;
+  --brand-gray: #4f4a4a;
+  --brand-light-gray: #e6e6e6;
+  --white: #fff;
+  --black: #000;
+
+  /* Heading Sizes */
+  --heading-size-xxl: 48px;
+  --heading-size-xl: 38px;
+  --heading-size-l: 30px;
+  --heading-size-m: 24px;
+  --heading-size-s: 18px;
+  --heading-size-xs: 16px;
+
+  /* Spacing */
+  --section-padding: 60px 0;
+  --content-max-width: 1200px;
+  --nav-height: 80px;
+  --gutter: 24px;
+}

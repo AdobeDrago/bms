@@ -1,0 +1,42 @@
+{
+  "variantName": "hero-article",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-05-16T08:03:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/life-and-science/people/pharmd-program.html",
+    "originPage": "people story article page",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "article-hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "category label + heading",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "article and story pages with hero images",
+      "people story pages",
+      "editorial content with category labels",
+      "news and perspective article pages",
+      "blog-style pages with featured images"
+    ],
+    "notSuitableFor": [
+      "campaign landing pages with CTAs",
+      "homepage hero banners with multiple buttons",
+      "promotional banners with subheadings",
+      "hero sections without background images"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/life-and-science/people/pharmd-program", "/life-and-science/science/accelerating-innovation-in-cancer-research-and-patient-care"],
+    "reuseCount": 2,
+    "lastUsed": "2026-05-16T08:05:00.000Z"
+  }
+}

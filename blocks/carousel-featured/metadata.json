@@ -1,0 +1,42 @@
+{
+  "variantName": "carousel-featured",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-05-16T07:12:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/about-us.html",
+    "originPage": "section landing page",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "featured-content",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "4 slides + image + heading link",
+    "buttonCount": 0,
+    "imageCount": 4
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "section landing pages with featured content",
+      "homepage hero carousels",
+      "promotional content rotation"
+    ],
+    "notSuitableFor": [
+      "product image galleries",
+      "testimonial carousels",
+      "simple image slideshows without links"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/about-us",
+      "/about-us/our-company"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-05-16T07:14:53.681240Z"
+  }
+}

@@ -1,0 +1,60 @@
+/* columns-pillars: 4 equal text-only columns displaying value pillars */
+
+.columns-pillars > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.columns-pillars > div > div {
+  order: 1;
+  padding: 0 0 24px;
+}
+
+/* Pillar heading */
+.columns-pillars h5 {
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+}
+
+/* Pillar body text */
+.columns-pillars p {
+  color: var(--text-color);
+  font-family: var(--heading-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  margin: 0;
+  padding: 0 0 24px;
+}
+
+/* Image column handling */
+.columns-pillars > div > .columns-pillars-img-col {
+  order: 0;
+}
+
+.columns-pillars > div > .columns-pillars-img-col img {
+  display: block;
+  width: 100%;
+}
+
+@media (width >= 900px) {
+  .columns-pillars > div {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .columns-pillars > div > div {
+    flex: 1;
+    order: unset;
+    margin: 0 15px 30px 0;
+  }
+
+  .columns-pillars > div > div:last-child {
+    margin-right: 0;
+  }
+}

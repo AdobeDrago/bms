@@ -1,0 +1,161 @@
+/* cards-promo: Mixed card pair - solid-color text card + image card */
+
+.cards-promo > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+}
+
+.cards-promo > ul > li {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Images */
+.cards-promo > ul > li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* Shared heading styles */
+.cards-promo .cards-promo-card-body h3,
+.cards-promo .cards-promo-card-body h4,
+.cards-promo .cards-promo-card-body h5 {
+  color: var(--white);
+  font-family: var(--heading-font-family);
+  font-weight: 300;
+  margin: 0;
+}
+
+.cards-promo .cards-promo-card-body p {
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 24px;
+  margin: 0;
+}
+
+.cards-promo .cards-promo-card-body {
+  margin: 0;
+}
+
+/* Image card */
+.cards-promo > ul > li:has(.cards-promo-card-image) {
+  background-color: var(--brand-dark-purple);
+}
+
+.cards-promo > ul > li:has(.cards-promo-card-image) a:any-link {
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+  color: var(--white);
+  min-height: 300px;
+}
+
+.cards-promo > ul > li:has(.cards-promo-card-image) .cards-promo-card-body h4,
+.cards-promo > ul > li:has(.cards-promo-card-image) .cards-promo-card-body h5 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/* Arrow indicator on image cards */
+.cards-promo > ul > li:has(.cards-promo-card-image) .cards-promo-card-body h4::after {
+  content: " \2192";
+}
+
+.cards-promo .cards-promo-card-image {
+  position: absolute;
+  inset: 0;
+  line-height: 0;
+}
+
+.cards-promo .cards-promo-card-image picture {
+  display: block;
+  height: 100%;
+}
+
+/* Image card text overlay */
+.cards-promo > ul > li:has(.cards-promo-card-image) .cards-promo-card-body {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 80px 25px 30px;
+  background: linear-gradient(to top, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 40%) 40%, rgb(0 0 0 / 0%) 100%);
+}
+
+/* Solid color card (no image) */
+.cards-promo > ul > li:not(:has(.cards-promo-card-image)) {
+  background-color: var(--brand-magenta);
+  padding: 40px 25px;
+}
+
+.cards-promo > ul > li:not(:has(.cards-promo-card-image)) .cards-promo-card-body h3,
+.cards-promo > ul > li:not(:has(.cards-promo-card-image)) .cards-promo-card-body h4 {
+  font-size: 24px;
+  line-height: 28px;
+  margin: 0 0 8px;
+}
+
+.cards-promo > ul > li:not(:has(.cards-promo-card-image)) a:any-link {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.cards-promo > ul > li:not(:has(.cards-promo-card-image)) a.button:any-link {
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: var(--white);
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  white-space: normal;
+  display: block;
+  min-height: auto;
+}
+
+/* Button reset for image cards */
+.cards-promo .button-container {
+  display: inline;
+}
+
+.cards-promo > ul > li:has(.cards-promo-card-image) a.button:any-link {
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: var(--white);
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  white-space: normal;
+}
+
+/* Hover zoom effect on image cards */
+.cards-promo > ul > li:has(.cards-promo-card-image):hover img {
+  transform: scale(1.05);
+}
+
+@media (width >= 900px) {
+  .cards-promo > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards-promo > ul > li:not(:has(.cards-promo-card-image)) {
+    padding: 80px 40px 107px 25px;
+  }
+
+  .cards-promo > ul > li:has(.cards-promo-card-image) a:any-link,
+  .cards-promo > ul > li:has(.cards-promo-card-image) a.button:any-link {
+    min-height: 360px;
+  }
+}

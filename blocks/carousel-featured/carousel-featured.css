@@ -1,0 +1,235 @@
+/* carousel-featured: Featured content carousel with image slides */
+
+/* Full-width wrapper override */
+.carousel-featured-container .carousel-featured-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+/* Slides container */
+.carousel-featured .carousel-featured-slides-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-featured .carousel-featured-slides,
+.carousel-featured .carousel-featured-slide-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-featured .carousel-featured-slides {
+  display: flex;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: scroll clip;
+}
+
+.carousel-featured .carousel-featured-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual slide */
+.carousel-featured .carousel-featured-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 240px;
+  overflow: hidden;
+}
+
+/* Slide image (background) */
+.carousel-featured .carousel-featured-slide .carousel-featured-slide-image {
+  position: static;
+}
+
+.carousel-featured .carousel-featured-slide .carousel-featured-slide-image picture {
+  position: absolute;
+  inset: 0;
+}
+
+.carousel-featured .carousel-featured-slide .carousel-featured-slide-image picture > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Slide content overlay */
+.carousel-featured .carousel-featured-slide .carousel-featured-slide-content {
+  z-index: 1;
+  position: relative;
+  padding: 30px 24px 50px;
+  color: var(--white);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-featured .carousel-featured-slide .carousel-featured-slide-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 0%) 100%);
+  z-index: -1;
+}
+
+.carousel-featured .carousel-featured-slide .carousel-featured-slide-content h1,
+.carousel-featured .carousel-featured-slide .carousel-featured-slide-content h2,
+.carousel-featured .carousel-featured-slide .carousel-featured-slide-content h3,
+.carousel-featured .carousel-featured-slide .carousel-featured-slide-content h4 {
+  color: var(--white);
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 7px;
+}
+
+.carousel-featured .carousel-featured-slide .carousel-featured-slide-content p {
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
+  margin: 0;
+}
+
+/* Slide counter/fraction */
+.carousel-featured .carousel-featured-slide .carousel-featured-slide-content .button-container {
+  display: inline;
+}
+
+.carousel-featured .carousel-featured-slide .carousel-featured-slide-content a.button:any-link {
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: var(--white);
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  white-space: normal;
+}
+
+/* Pagination indicators */
+.carousel-featured .carousel-featured-slide-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 20px;
+  line-height: 0;
+}
+
+.carousel-featured .carousel-featured-slide-indicator button {
+  width: 24px;
+  height: 6px;
+  margin: 0;
+  padding: 0;
+  border-radius: 6px;
+  border: none;
+  background-color: rgb(115 115 115 / 40%);
+  box-shadow: 0 0 3px -1px rgb(0 0 0 / 100%);
+  transition: background-color 0.2s, opacity 0.2s;
+  cursor: pointer;
+}
+
+.carousel-featured .carousel-featured-slide-indicator button:disabled {
+  background-color: var(--brand-purple);
+  opacity: 1;
+}
+
+.carousel-featured .carousel-featured-slide-indicator button:hover,
+.carousel-featured .carousel-featured-slide-indicator button:focus-visible {
+  background-color: var(--brand-purple);
+}
+
+/* Navigation arrows */
+.carousel-featured .carousel-featured-navigation-buttons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel-featured .carousel-featured-navigation-buttons button {
+  pointer-events: auto;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  background-color: rgb(19 19 19 / 25%);
+  color: var(--white);
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.carousel-featured .carousel-featured-navigation-buttons button:hover,
+.carousel-featured .carousel-featured-navigation-buttons button:focus-visible {
+  background-color: rgb(19 19 19 / 75%);
+}
+
+.carousel-featured .carousel-featured-navigation-buttons button::after {
+  display: block;
+  content: "";
+  border: 2px solid var(--white);
+  border-bottom: 0;
+  border-left: 0;
+  height: 12px;
+  width: 12px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel-featured .carousel-featured-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+  left: calc(50% - 2px);
+}
+
+/* Card shadow on slides */
+.carousel-featured .carousel-featured-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 2px 1px rgb(0 0 0 / 10%), inset 0 2px 3px 0 rgb(0 0 0 / 16%);
+  pointer-events: none;
+}
+
+@media (width >= 600px) {
+  .carousel-featured .carousel-featured-navigation-buttons {
+    left: 24px;
+    right: 24px;
+  }
+
+  .carousel-featured .carousel-featured-slide .carousel-featured-slide-content {
+    padding: 50px 60px 80px;
+    width: 50%;
+  }
+
+  .carousel-featured .carousel-featured-slide .carousel-featured-slide-content h1,
+  .carousel-featured .carousel-featured-slide .carousel-featured-slide-content h2,
+  .carousel-featured .carousel-featured-slide .carousel-featured-slide-content h3,
+  .carousel-featured .carousel-featured-slide .carousel-featured-slide-content h4 {
+    font-size: 32px;
+    line-height: 38px;
+  }
+}

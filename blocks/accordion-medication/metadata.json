@@ -1,0 +1,41 @@
+{
+  "variantName": "accordion-medication",
+  "baseBlock": "accordion",
+  "version": "1.0.0",
+  "created": "2026-05-16T09:17:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/patient-and-caregivers/get-help-paying-for-your-medicines.html",
+    "originPage": "patient resources page with medication support listings",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "medication-resources",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "title + rich content body with links and headings",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "medication or product resource listings",
+      "multi-item FAQ sections with rich content per item",
+      "product-specific information with links and sub-headings",
+      "patient support resource directories",
+      "regulatory/prescribing information listings"
+    ],
+    "notSuitableFor": [
+      "single-item collapsible sections (use accordion-transcript)",
+      "simple Q&A without nested headings or links",
+      "tabbed content interfaces"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/patient-and-caregivers/get-help-paying-for-your-medicines"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-16T09:17:00.000Z"
+  }
+}

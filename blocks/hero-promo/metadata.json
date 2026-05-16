@@ -1,0 +1,39 @@
+{
+  "variantName": "hero-promo",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-05-16T07:12:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/about-us.html",
+    "originPage": "section landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "promotional-banner",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image collage + heading + subheading + paragraph + link",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "section landing page promotional banners",
+      "mid-page hero callouts",
+      "full-width feature highlights with background imagery"
+    ],
+    "notSuitableFor": [
+      "page-top hero banners with simple text",
+      "minimal hero sections without images",
+      "text-only promotional areas"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/about-us"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-16T07:12:00.000Z"
+  }
+}

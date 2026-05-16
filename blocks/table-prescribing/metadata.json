@@ -1,0 +1,40 @@
+{
+  "variantName": "table-prescribing",
+  "baseBlock": "table",
+  "version": "1.0.0",
+  "created": "2026-05-16T09:18:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/patient-and-caregivers/our-medicines.html",
+    "originPage": "medicines directory page with prescribing information reference table",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "prescribing-reference",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "header row + data rows with product names and PDF links",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "prescribing information reference tables",
+      "medication guide link tables",
+      "product document reference grids",
+      "pharmaceutical data tables with PDF links"
+    ],
+    "notSuitableFor": [
+      "complex data comparison tables",
+      "interactive sortable tables",
+      "tables with embedded images or media"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/patient-and-caregivers/our-medicines"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-16T09:18:00.000Z"
+  }
+}

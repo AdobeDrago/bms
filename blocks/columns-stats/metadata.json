@@ -1,0 +1,40 @@
+{
+  "variantName": "columns-stats",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-05-16T09:18:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/researchers-and-partners/in-the-pipeline.html",
+    "originPage": "pipeline data page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "purpose": "statistics-counter",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "2 large numbers + 2 descriptive labels",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "key statistics displays",
+      "counter/metric sections",
+      "at-a-glance number highlights",
+      "two-column data summary layouts"
+    ],
+    "notSuitableFor": [
+      "image-heavy side-by-side layouts",
+      "text-heavy comparison columns",
+      "content with mixed media or CTAs"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/researchers-and-partners/in-the-pipeline"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-16T09:18:00.000Z"
+  }
+}

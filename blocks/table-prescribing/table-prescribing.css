@@ -1,0 +1,67 @@
+.table-prescribing.block {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-prescribing.block table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  font-size: var(--body-font-size-xs);
+}
+
+@media (width >= 600px) {
+  .table-prescribing.block table {
+    font-size: var(--body-font-size-s);
+  }
+}
+
+@media (width >= 900px) {
+  .table-prescribing.block table {
+    font-size: var(--body-font-size-m);
+  }
+}
+
+.table-prescribing.block table thead tr {
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+}
+
+.table-prescribing.block table tbody tr {
+  border-bottom: 1px solid;
+}
+
+.table-prescribing.block table th {
+  font-weight: 700;
+}
+
+.table-prescribing.block table th,
+.table-prescribing.block table td {
+  padding: 0.5em;
+  text-align: left;
+}
+
+.table-prescribing table th p,
+.table-prescribing table td p {
+  margin: 0;
+}
+
+.table-prescribing table td p + p {
+  margin-top: 0.25em;
+}
+
+/* no header variant */
+.table-prescribing.block.no-header table tbody tr {
+  border-top: 1px solid;
+}
+
+/* striped variant */
+.table-prescribing.block.striped tbody tr:nth-child(odd) {
+  background-color: var(--overlay-background-color);
+}
+
+/* bordered variant */
+.table-prescribing.block.bordered table th,
+.table-prescribing.block.bordered table td {
+  border: 1px solid;
+}

@@ -1,0 +1,41 @@
+{
+  "variantName": "table-pipeline",
+  "baseBlock": "table",
+  "version": "1.0.0",
+  "created": "2026-05-16T09:18:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/researchers-and-partners/in-the-pipeline.html",
+    "originPage": "pipeline data page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "pipeline-data",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "filterable sortable data table with 5 columns and 80+ rows",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "pharmaceutical pipeline data displays",
+      "compound development status tables",
+      "clinical trial phase tracking tables",
+      "large interactive filterable data tables"
+    ],
+    "notSuitableFor": [
+      "simple static data tables",
+      "comparison tables",
+      "pricing tables",
+      "small reference tables"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/researchers-and-partners/in-the-pipeline"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-16T09:18:00.000Z"
+  }
+}

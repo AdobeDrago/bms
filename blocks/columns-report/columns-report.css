@@ -1,0 +1,118 @@
+/* columns-report: Two-column report promo (image left, text right) */
+
+.columns-report > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-report > div > div {
+  order: 1;
+}
+
+.columns-report > div > .columns-report-img-col {
+  order: 0;
+}
+
+/* Image column */
+.columns-report > div > .columns-report-img-col img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text column */
+.columns-report > div > div:not(.columns-report-img-col) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 28px 24px;
+  background-color: var(--brand-tan);
+}
+
+.columns-report h4:first-child {
+  color: var(--brand-magenta);
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 24px;
+  margin: 0;
+}
+
+.columns-report h3 {
+  color: var(--white);
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 32px;
+  margin: 0;
+}
+
+.columns-report h4:last-of-type {
+  color: var(--text-color);
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 24px;
+  margin: 0;
+}
+
+.columns-report p {
+  margin: 16px 0 0;
+}
+
+/* CTA button */
+.columns-report a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--brand-magenta);
+  border-color: var(--brand-magenta);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  margin-top: 12px;
+}
+
+.columns-report a.button:hover,
+.columns-report a.button:focus-visible {
+  background-color: var(--brand-dark-purple);
+  border-color: var(--brand-dark-purple);
+}
+
+@media (width >= 900px) {
+  .columns-report > div {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .columns-report > div > div {
+    flex: 1;
+    order: unset;
+  }
+
+  .columns-report > div > div:not(.columns-report-img-col) {
+    padding: 28px 40px;
+  }
+
+  .columns-report h4:first-child {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .columns-report h3 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .columns-report h4:last-of-type {
+    font-size: 24px;
+    line-height: 27px;
+  }
+
+  .columns-report a.button:any-link {
+    font-size: 20px;
+    padding: 12px 24px;
+  }
+}

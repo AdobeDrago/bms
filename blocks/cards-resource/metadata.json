@@ -1,0 +1,40 @@
+{
+  "variantName": "cards-resource",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-16T07:15:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/",
+    "originPage": "BMS corporate homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "resource-links",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "heading + description + multiple links",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "resource link sections",
+      "quick-access card grids without images",
+      "audience-targeted link groups",
+      "FAQ-style resource navigation"
+    ],
+    "notSuitableFor": [
+      "image-heavy card grids",
+      "product showcase cards",
+      "visual story cards"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-16T07:15:00.000Z"
+  }
+}

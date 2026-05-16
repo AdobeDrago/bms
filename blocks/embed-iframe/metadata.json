@@ -1,0 +1,40 @@
+{
+  "variantName": "embed-iframe",
+  "baseBlock": "embed",
+  "version": "1.0.0",
+  "created": "2026-05-16T09:22:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/media/press-releases.html",
+    "originPage": "press releases listing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "purpose": "external-iframe",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "iframe URL",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "external platform iframe embeds",
+      "third-party news feed integrations",
+      "investor relations platform embeds",
+      "full-page external content frames"
+    ],
+    "notSuitableFor": [
+      "video player embeds (use embed-video)",
+      "social media post embeds",
+      "inline content widgets"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/media/press-releases"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-16T09:22:00.000Z"
+  }
+}

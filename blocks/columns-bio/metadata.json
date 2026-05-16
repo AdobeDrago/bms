@@ -1,0 +1,43 @@
+{
+  "variantName": "columns-bio",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-05-16T07:09:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/about-us/leadership/leadership-team/chris-boerner.html",
+    "originPage": "executive biography page",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "bio-profile",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + heading + subheading + paragraphs",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "executive biography pages",
+      "team member profile pages",
+      "author bio sections",
+      "speaker profile pages"
+    ],
+    "notSuitableFor": [
+      "product comparison layouts",
+      "multi-column text content",
+      "side-by-side feature highlights"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/about-us/leadership/leadership-team/chris-boerner",
+      "/about-us/leadership/leadership-team"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-05-16T07:10:00.000Z"
+  }
+}

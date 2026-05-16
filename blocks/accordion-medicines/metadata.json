@@ -1,0 +1,40 @@
+{
+  "variantName": "accordion-medicines",
+  "baseBlock": "accordion",
+  "version": "1.0.0",
+  "created": "2026-05-16T09:18:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.bms.com/patient-and-caregivers/our-medicines.html",
+    "originPage": "medicines directory page with branded medication listings",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "medicine-directory",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "brand name title + rich content with PDF links and support info",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "product/medicine directory pages",
+      "drug information listings",
+      "pharmaceutical product catalogs",
+      "expandable product detail sections"
+    ],
+    "notSuitableFor": [
+      "FAQ sections with short answers",
+      "video transcript toggles",
+      "simple text-only accordions"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/patient-and-caregivers/our-medicines"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-16T09:18:00.000Z"
+  }
+}
