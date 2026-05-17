@@ -53,8 +53,7 @@ footer .footer .footer-col a:hover {
 }
 
 footer .footer .footer-social {
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   gap: 16px;
 }
 
