@@ -109,6 +109,39 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 }
 
 /**
+ * Builds a fallback nav DOM matching the bms.com structure when the authored
+ * /nav fragment is empty. Authoring this fragment in DA will override this.
+ */
+function buildFallbackNav() {
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = `
+    <div class="default-content-wrapper">
+      <p><a href="/" aria-label="Bristol Myers Squibb home">
+        <span class="nav-brand-logo">Bristol Myers Squibb</span>
+      </a></p>
+    </div>
+    <div class="default-content-wrapper">
+      <ul>
+        <li><a href="/our-medicines">Our medicines</a></li>
+        <li><a href="/our-science">Our science</a></li>
+        <li><a href="/our-stories">Our stories</a></li>
+      </ul>
+    </div>
+    <div class="default-content-wrapper">
+      <ul class="nav-utility">
+        <li class="nav-region"><a href="/global">United States</a></li>
+        <li><a href="/contact-us">Contact us</a></li>
+        <li><a href="/careers">Careers</a></li>
+        <li class="nav-search"><a href="/search" aria-label="Search">
+          <img src="/icons/search.svg" alt="" width="20" height="20">
+        </a></li>
+      </ul>
+    </div>
+  `;
+  return wrapper;
+}
+
+/**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
@@ -116,7 +149,13 @@ export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  const fragment = await loadFragment(navPath);
+  let fragment = await loadFragment(navPath);
+
+  // If the authored nav fragment is empty (or only blank wrappers),
+  // fall back to a default nav structure so the header still renders.
+  if (!fragment || !fragment.textContent.trim()) {
+    fragment = buildFallbackNav();
+  }
 
   // decorate nav DOM
   block.textContent = '';
