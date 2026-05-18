@@ -133,7 +133,7 @@ function buildFallbackNav() {
       <ul class="nav-utility">
         <li><a href="/contact-us">Contact us</a></li>
         <li class="nav-careers"><a href="https://careers.bms.com" target="_blank" rel="noopener">Careers</a></li>
-        <li class="nav-region"><a href="/global">United States</a></li>
+        <li class="nav-region"><a href="/global-site-selection">United States</a></li>
         <li class="nav-search"><a href="/search" aria-label="Search">
           <img src="/icons/search.svg" alt="" width="18" height="18">
         </a></li>
