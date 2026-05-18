@@ -176,19 +176,21 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
-  // Assign nav section classes: brand, sections, tools, audience
+  // Assign nav section classes: brand, sections, tools
   const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
   });
 
-  // 4th div is the audience nav bar (purple row)
-  const audienceWrapper = nav.querySelector('.nav-audience-wrapper');
-  if (audienceWrapper) {
-    audienceWrapper.classList.add('nav-audience-bar');
-  } else if (nav.children[3]) {
-    nav.children[3].classList.add('nav-audience-bar');
+  // Extract 4th div (audience bar) from nav — it will live OUTSIDE
+  // the constrained <nav> so it naturally fills 100% viewport width.
+  let audienceBar = nav.querySelector('.nav-audience-wrapper') || nav.children[3];
+  if (audienceBar) {
+    audienceBar.classList.add('nav-audience-bar');
+    nav.removeChild(audienceBar);
+  } else {
+    audienceBar = null;
   }
 
   const navBrand = nav.querySelector('.nav-brand');
@@ -237,5 +239,8 @@ export default async function decorate(block) {
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
+  // Audience bar sits OUTSIDE the max-width-constrained nav so it spans
+  // the full viewport width with no breakout math required.
+  if (audienceBar) navWrapper.append(audienceBar);
   block.append(navWrapper);
 }

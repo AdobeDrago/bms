@@ -36,8 +36,7 @@ header nav {
   display: grid;
   grid-template:
     'hamburger brand tools' var(--nav-height)
-    'sections sections sections' 1fr
-    'audience audience audience' auto / auto 1fr auto;
+    'sections sections sections' 1fr / auto 1fr auto;
   align-items: center;
   width: 100%;
   max-width: 100%;
@@ -48,9 +47,7 @@ header nav {
 /* Desktop: true 3-col with logo centered */
 @media (width >= 900px) {
   header nav {
-    grid-template:
-      'sections brand tools' var(--nav-height)
-      'audience audience audience' var(--nav-audience-height) / 1fr auto 1fr;
+    grid-template: 'sections brand tools' var(--nav-height) / 1fr auto 1fr;
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 32px;
@@ -66,8 +63,7 @@ header nav[aria-expanded='true'] {
   grid-template:
     'hamburger brand' var(--nav-height)
     'sections sections' 1fr
-    'tools tools' auto
-    'audience audience' auto / auto 1fr;
+    'tools tools' auto / auto 1fr;
   overflow-y: auto;
   min-height: 100dvh;
   background: var(--background-color);
@@ -391,65 +387,45 @@ header nav .nav-tools .nav-search img:hover {
 }
 
 
-/* ── Tier 2: Audience bar — MAGENTA, full-width ── */
-header nav .nav-audience-bar {
-  grid-area: audience;
+/* ── Tier 2: Audience bar — sits outside <nav>, naturally full-width ── */
+header .nav-wrapper .nav-audience-bar {
+  width: 100%;
   background-color: var(--brand-magenta);
-  width: 100vw;
-  margin-left: calc(-1 * ((100vw - 100%) / 2));
-  box-sizing: border-box;
 }
 
-header nav .nav-audience {
+header .nav-wrapper .nav-audience {
   list-style: none;
   margin: 0 auto;
   padding: 0;
   max-width: 1440px;
   display: flex;
-  flex-direction: column;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
-header nav .nav-audience-bar .nav-audience li a:any-link {
+header .nav-wrapper .nav-audience-bar .nav-audience li a:any-link {
   display: block;
-  padding: 11px 18px;
+  padding: 10px 16px;
   color: var(--white);
   text-decoration: none;
   font-size: 13px;
   font-weight: 400;
   white-space: nowrap;
   border-bottom: 2px solid transparent;
-  transition: border-color 0.15s, opacity 0.15s;
+  transition: border-color 0.15s;
 }
 
-header nav .nav-audience-bar .nav-audience li a:hover {
+header .nav-wrapper .nav-audience-bar .nav-audience li a:hover {
   border-bottom-color: var(--white);
 }
 
-@media (width >= 900px) {
-  header nav .nav-audience-bar {
-    margin-left: calc(((100vw - 100%) / -2) - 32px);
-  }
-
-  header nav .nav-audience {
-    flex-direction: row;
-    justify-content: center;
-    padding: 0 32px;
-  }
-
-  header nav .nav-audience-bar .nav-audience li a:any-link {
-    padding: 10px 16px;
-  }
-}
-
-/* Mobile: hide audience bar unless menu open */
+/* Mobile: collapse audience bar into the open mobile menu */
 @media (width < 900px) {
-  header nav .nav-audience-bar {
+  header .nav-wrapper .nav-audience-bar {
     display: none;
-    width: 100%;
-    margin-left: 0;
   }
 
-  header nav[aria-expanded='true'] .nav-audience-bar {
+  header nav[aria-expanded='true'] ~ .nav-audience-bar {
     display: block;
   }
 }
