@@ -1,4 +1,10 @@
-/* cards-featured: Featured content cards with images and gradient text overlays */
+/* cards-featured: Mosaic card grid with image backgrounds and text overlays
+   Mobile:  1 column stack
+   Tablet:  2 columns
+   Desktop: mosaic — first card is 2× height (spans 2 rows), remaining 2 cards stack right
+            For 4-card blocks: 2×2 equal grid
+            For 6+-card blocks: 3-column equal grid
+*/
 
 .cards-featured > ul {
   list-style: none;
@@ -13,6 +19,7 @@
   position: relative;
   overflow: hidden;
   background-color: var(--brand-magenta);
+  min-height: 200px;
 }
 
 .cards-featured > ul > li a:any-link {
@@ -20,10 +27,11 @@
   align-items: flex-end;
   text-decoration: none;
   color: var(--white);
-  aspect-ratio: 16 / 9;
+  height: 100%;
+  min-height: 200px;
 }
 
-/* Image container */
+/* Image container — absolute fill */
 .cards-featured .cards-featured-card-image {
   position: absolute;
   inset: 0;
@@ -42,7 +50,7 @@
   display: block;
 }
 
-/* Text overlay with gradient */
+/* Text overlay */
 .cards-featured .cards-featured-card-body {
   position: relative;
   z-index: 1;
@@ -51,8 +59,10 @@
   background: linear-gradient(rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 60%) 30%, rgb(0 0 0 / 60%) 90%);
 }
 
-.cards-featured .cards-featured-card-body h4 {
+.cards-featured .cards-featured-card-body h4,
+.cards-featured .cards-featured-card-body h3 {
   color: var(--white);
+  font-family: var(--heading-font-family);
   font-size: 18px;
   font-weight: 300;
   line-height: 24px;
@@ -67,12 +77,13 @@
   margin: 5px 0 0;
 }
 
-/* Arrow indicator */
-.cards-featured .cards-featured-card-body h4::after {
+/* Arrow on heading */
+.cards-featured .cards-featured-card-body h4::after,
+.cards-featured .cards-featured-card-body h3::after {
   content: " \2192";
 }
 
-/* Button reset */
+/* Button reset — links in cards behave like card overlays */
 .cards-featured .button-container {
   display: inline;
 }
@@ -90,17 +101,49 @@
   white-space: normal;
   display: flex;
   align-items: flex-end;
-  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
 }
 
+/* ── Tablet: 2-column equal grid ── */
 @media (width >= 600px) {
   .cards-featured > ul {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* ── Desktop mosaic layout ── */
 @media (width >= 900px) {
-  .cards-featured > ul {
+  /* 3-card block: first card is tall (spans 2 rows), cards 2-3 stack right */
+  .cards-featured > ul:has(> li:nth-child(3):last-child) {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .cards-featured > ul:has(> li:nth-child(3):last-child) > li:first-child {
+    grid-row: 1 / 3;
+  }
+
+  .cards-featured > ul:has(> li:nth-child(3):last-child) > li:first-child a:any-link {
+    min-height: 480px;
+  }
+
+  .cards-featured > ul:has(> li:nth-child(3):last-child) > li:not(:first-child) {
+    min-height: 220px;
+  }
+
+  .cards-featured > ul:has(> li:nth-child(3):last-child) > li:not(:first-child) a:any-link {
+    min-height: 220px;
+  }
+
+  /* 4-card block: 2×2 grid */
+  .cards-featured > ul:has(> li:nth-child(4):last-child) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Default (5+ cards): 3-column equal grid */
+  .cards-featured > ul:not(:has(> li:nth-child(3):last-child), :has(> li:nth-child(4):last-child)) {
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -108,8 +151,17 @@
     padding: 40px 25px;
   }
 
-  .cards-featured .cards-featured-card-body h4 {
+  .cards-featured .cards-featured-card-body h4,
+  .cards-featured .cards-featured-card-body h3 {
     font-size: 20px;
     line-height: 26px;
+  }
+
+  /* First card in 3-card mosaic gets larger text */
+  .cards-featured > ul:has(> li:nth-child(3):last-child) > li:first-child h4,
+  .cards-featured > ul:has(> li:nth-child(3):last-child) > li:first-child h3 {
+    font-size: 26px;
+    line-height: 32px;
+    max-width: 80%;
   }
 }

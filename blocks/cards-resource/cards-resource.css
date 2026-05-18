@@ -1,4 +1,5 @@
-/* cards-resource: Text-only resource link cards in a row */
+/* cards-resource: Resource link cards — matches bms.com "Defining what's possible"
+   and "Looking for answers?" sections. Shows image when authored, text-only otherwise. */
 
 .cards-resource > ul {
   list-style: none;
@@ -6,22 +7,42 @@
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 30px;
+  gap: 0;
 }
 
 .cards-resource > ul > li {
-  padding: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 24px;
   border-bottom: 1px solid var(--brand-light-gray);
 }
 
-/* Hide image cells if present (this is a text-only variant) */
+/* Image — shown when authored (16:9 ratio, full width of card) */
 .cards-resource .cards-resource-card-image {
-  display: none;
+  display: block;
+  overflow: hidden;
+  margin-bottom: 16px;
+  aspect-ratio: 16 / 9;
+}
+
+.cards-resource .cards-resource-card-image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cards-resource .cards-resource-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Card body */
 .cards-resource .cards-resource-card-body {
-  margin: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Card heading */
@@ -30,25 +51,25 @@
   font-family: var(--heading-font-family);
   font-size: 20px;
   font-weight: 300;
-  line-height: 24px;
+  line-height: 1.2;
   margin: 0 0 10px;
 }
 
-/* Card description text */
+/* Card description */
 .cards-resource .cards-resource-card-body p {
   color: var(--text-color);
-  font-size: 16px;
+  font-size: var(--body-font-size-s);
   font-weight: 400;
-  line-height: 20px;
-  margin: 5px 0 0;
+  line-height: 1.5;
+  margin: 0 0 12px;
+  flex: 1;
 }
 
 /* Card links */
 .cards-resource .cards-resource-card-body a:any-link {
   color: var(--link-color);
-  font-size: 16px;
+  font-size: var(--body-font-size-s);
   font-weight: 400;
-  line-height: 18px;
   text-decoration: underline;
 }
 
@@ -56,10 +77,10 @@
   color: var(--link-hover-color);
 }
 
-/* Button reset - links should remain as plain text links */
+/* "Learn more" style links */
 .cards-resource .button-container {
   display: block;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .cards-resource a.button:any-link {
@@ -67,7 +88,7 @@
   border: none;
   border-radius: 0;
   color: var(--link-color);
-  font-size: 16px;
+  font-size: var(--body-font-size-s);
   font-weight: 400;
   padding: 0;
   margin: 0;
@@ -81,36 +102,39 @@
   background: none;
 }
 
-/* List styling for multiple links */
+/* Multiple link items */
 .cards-resource .cards-resource-card-body ul {
   list-style: none;
   padding: 0;
-  margin: 10px 0 0;
+  margin: 8px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .cards-resource .cards-resource-card-body ul li {
-  margin-bottom: 4px;
+  margin: 0;
 }
 
 @media (width >= 600px) {
   .cards-resource > ul {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 32px;
   }
 
   .cards-resource > ul > li {
     border-bottom: none;
-    padding-right: 25px;
+    padding-bottom: 0;
   }
 }
 
 @media (width >= 900px) {
   .cards-resource > ul {
     grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
   }
 
   .cards-resource .cards-resource-card-body h3 {
-    font-size: 25px;
-    line-height: 28px;
+    font-size: 22px;
   }
 }

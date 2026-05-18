@@ -114,6 +114,34 @@ function decorateButtons(main) {
 }
 
 /**
+ * Removes sections containing scraped cookie-consent content that was
+ * accidentally included in the authored page via the modernization scrape.
+ * Targets headings whose id begins with "cookie-preference-center" and
+ * removes the surrounding section, plus any stray BMS logo / branding
+ * images that appear between the real content and the cookie section.
+ * @param {Element} main The main element
+ */
+function removeCookieContent(main) {
+  // Remove any section that contains a cookie-preference-center heading
+  main.querySelectorAll('[id^="cookie-preference-center"]').forEach((el) => {
+    const section = el.closest('.section') || el.parentElement;
+    if (section) section.remove();
+  });
+  // Remove stray default-content sections that are empty or only contain a
+  // BMS logo image (the company branding picture above the cookie block)
+  main.querySelectorAll('.section .default-content-wrapper').forEach((wrapper) => {
+    const section = wrapper.closest('.section');
+    if (!section) return;
+    const imgs = section.querySelectorAll('img');
+    const text = section.textContent.trim();
+    // Section only has an image with alt "Company Logo" and no real text
+    if (imgs.length === 1 && imgs[0].alt === 'Company Logo' && text.length < 50) {
+      section.remove();
+    }
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -124,6 +152,7 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+  removeCookieContent(main);
 }
 
 /**

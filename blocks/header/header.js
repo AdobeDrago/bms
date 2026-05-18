@@ -109,8 +109,10 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 }
 
 /**
- * Builds a fallback nav DOM matching the bms.com structure when the authored
- * /nav fragment is empty. Authoring this fragment in DA will override this.
+ * Builds a two-tier fallback nav matching bms.com:
+ *   Row 1 (white): product nav (left) + BMS logo (center) + utility links (right)
+ *   Row 2 (purple): audience navigation
+ * Authoring the /nav fragment in DA will override this fallback.
  */
 function buildFallbackNav() {
   const wrapper = document.createElement('div');
@@ -129,12 +131,23 @@ function buildFallbackNav() {
     </div>
     <div class="default-content-wrapper">
       <ul class="nav-utility">
-        <li class="nav-region"><a href="/global">United States</a></li>
         <li><a href="/contact-us">Contact us</a></li>
-        <li><a href="/careers">Careers</a></li>
+        <li class="nav-careers"><a href="https://careers.bms.com" target="_blank" rel="noopener">Careers</a></li>
+        <li class="nav-region"><a href="/global">United States</a></li>
         <li class="nav-search"><a href="/search" aria-label="Search">
-          <img src="/icons/search.svg" alt="" width="20" height="20">
+          <img src="/icons/search.svg" alt="" width="18" height="18">
         </a></li>
+      </ul>
+    </div>
+    <div class="default-content-wrapper nav-audience-wrapper">
+      <ul class="nav-audience">
+        <li><a href="/patient-and-caregivers">Patients &amp; caregivers</a></li>
+        <li><a href="/healthcare-providers">Healthcare providers</a></li>
+        <li><a href="/researchers-and-partners">Researchers</a></li>
+        <li><a href="/investors">Investors</a></li>
+        <li><a href="/business-development">Business development</a></li>
+        <li><a href="/media">News &amp; media</a></li>
+        <li><a href="/about-us">About us</a></li>
       </ul>
     </div>
   `;
@@ -163,17 +176,29 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
+  // Assign nav section classes: brand, sections, tools, audience
   const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
   });
 
+  // 4th div is the audience nav bar (purple row)
+  const audienceWrapper = nav.querySelector('.nav-audience-wrapper');
+  if (audienceWrapper) {
+    audienceWrapper.classList.add('nav-audience-bar');
+  } else if (nav.children[3]) {
+    nav.children[3].classList.add('nav-audience-bar');
+  }
+
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
-  if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
+  if (navBrand) {
+    const brandLink = navBrand.querySelector('.button');
+    if (brandLink) {
+      brandLink.className = '';
+      const bc = brandLink.closest('.button-container');
+      if (bc) bc.className = '';
+    }
   }
 
   const navSections = nav.querySelector('.nav-sections');

@@ -1,7 +1,9 @@
+/* Footer — dark background, 4-column layout matching bms.com */
+
 footer {
-  background-color: var(--brand-tan);
+  background-color: #2d2926;
+  color: #ccc;
   font-size: var(--body-font-size-xs);
-  color: var(--text-color);
 }
 
 footer .footer > div {
@@ -20,17 +22,17 @@ footer .footer .footer-columns {
   grid-template-columns: 1fr;
   gap: 32px;
   padding-bottom: 32px;
-  border-bottom: 1px solid var(--brand-light-gray);
+  border-bottom: 1px solid rgb(255 255 255 / 12%);
 }
 
 footer .footer .footer-col h4 {
-  margin: 0 0 12px;
-  color: var(--brand-purple);
+  margin: 0 0 14px;
+  color: var(--white);
   font-family: var(--body-font-family);
-  font-size: var(--body-font-size-s);
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
 }
 
 footer .footer .footer-col ul {
@@ -43,25 +45,38 @@ footer .footer .footer-col ul {
 }
 
 footer .footer .footer-col a:any-link {
-  color: var(--text-color);
+  color: #ccc;
   text-decoration: none;
+  font-size: var(--body-font-size-xs);
 }
 
 footer .footer .footer-col a:hover {
-  color: var(--brand-magenta);
+  color: var(--white);
   text-decoration: underline;
 }
 
+/* Social links row */
 footer .footer .footer-social {
   flex-flow: row wrap;
-  gap: 16px;
+  gap: 12px;
+}
+
+footer .footer .footer-social a:any-link {
+  color: #ccc;
+  font-size: var(--body-font-size-xs);
+  text-decoration: none;
+  padding: 2px 0;
+}
+
+footer .footer .footer-social a:hover {
+  color: var(--white);
 }
 
 /* Legal row */
 footer .footer .footer-legal {
   padding-top: 20px;
-  color: var(--text-color);
-  font-size: var(--body-font-size-xs);
+  color: #999;
+  font-size: 12px;
 }
 
 @media (width >= 600px) {

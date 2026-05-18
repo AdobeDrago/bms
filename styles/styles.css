@@ -27,7 +27,8 @@
   --heading-font-size-xs: 16px;
 
   /* nav height */
-  --nav-height: 80px;
+  --nav-height: 60px;
+  --nav-audience-height: 40px;
 }
 
 /* fallback font */
@@ -64,7 +65,7 @@ body.appear {
 }
 
 header {
-  height: var(--nav-height);
+  height: calc(var(--nav-height) + var(--nav-audience-height));
 }
 
 header .header,
@@ -270,6 +271,12 @@ main > .section > div {
 
 main > .section:first-of-type {
   margin-top: 0;
+}
+
+/* Hide page-title text (h1) that was scraped as content in the same
+   section as the hero-campaign block — it is display metadata only */
+main > .section:has(.hero-campaign) > .default-content-wrapper {
+  display: none;
 }
 
 @media (width >= 900px) {
