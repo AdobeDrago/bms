@@ -119,7 +119,7 @@ function buildFallbackNav() {
   wrapper.innerHTML = `
     <div class="default-content-wrapper">
       <p><a href="/" aria-label="Bristol Myers Squibb home">
-        <span class="nav-brand-logo">Bristol Myers Squibb</span>
+        <img src="/icons/bms-logo.svg" alt="Bristol Myers Squibb" width="180" height="25" class="nav-brand-img">
       </a></p>
     </div>
     <div class="default-content-wrapper">

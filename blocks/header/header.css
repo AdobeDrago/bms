@@ -180,7 +180,20 @@ header nav .nav-brand img {
   height: auto;
 }
 
-/* Wordmark fallback */
+/* BMS logo image */
+header nav .nav-brand-img {
+  display: block;
+  width: 160px;
+  height: auto;
+}
+
+@media (width >= 900px) {
+  header nav .nav-brand-img {
+    width: 190px;
+  }
+}
+
+/* Wordmark text fallback (hidden when logo image loads) */
 header nav .nav-brand-logo {
   display: inline-block;
   font-family: var(--heading-font-family);
