@@ -1,0 +1,69 @@
+.hero-campaign {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero-campaign .hero-campaign-background {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-campaign .hero-campaign-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.3) 40%,
+    transparent 70%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 48px;
+}
+
+.hero-campaign .hero-campaign-text {
+  max-width: 600px;
+  color: #fff;
+}
+
+.hero-campaign .hero-campaign-text h2 {
+  font-size: 38px;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.hero-campaign .hero-campaign-text p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .hero-campaign .hero-campaign-background {
+    height: 360px;
+  }
+
+  .hero-campaign .hero-campaign-overlay {
+    padding: 24px;
+  }
+
+  .hero-campaign .hero-campaign-text h2 {
+    font-size: 24px;
+  }
+
+  .hero-campaign .hero-campaign-text p {
+    font-size: 15px;
+  }
+}
