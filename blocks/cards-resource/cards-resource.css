@@ -52,6 +52,20 @@
   padding: 0;
 }
 
+/* Card image (CTA variant only) */
+.cards-resource .cards-resource-image {
+  margin-bottom: 16px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.cards-resource .cards-resource-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* Title */
 .cards-resource .cards-resource-title h3 {
   color: #be2bbb;
