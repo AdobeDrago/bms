@@ -192,6 +192,7 @@ export default async function decorate(block) {
     brandLink.closest('.button-container').className = '';
   }
 
+  // Re-query navSections after potential fallback injection
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
@@ -217,7 +218,10 @@ export default async function decorate(block) {
   nav.setAttribute('aria-expanded', 'false');
   // prevent mobile nav behavior on window resize
   toggleMenu(nav, navSections, isDesktop.matches);
-  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
+  isDesktop.addEventListener('change', () => {
+    const ns = nav.querySelector('.nav-sections');
+    toggleMenu(nav, ns, isDesktop.matches);
+  });
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
