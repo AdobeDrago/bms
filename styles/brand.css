@@ -1,0 +1,13 @@
+:root {
+  --heading-font-family: "BMSHumanity", "Outfit", sans-serif;
+  --body-font-family: "BMSHumanity", "Outfit", sans-serif;
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --link-color: #0000ee;
+  --link-hover-color: #0000cc;
+  --section-padding: 0px;
+  --nav-height: 60px;
+  --highlight-background: rgb(240, 239, 234);
+}
+
+html, body { overflow: auto !important; }
