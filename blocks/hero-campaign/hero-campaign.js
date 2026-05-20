@@ -1,5 +1,5 @@
 export default function decorate(block) {
-  const FALLBACK_IMAGE = 'https://www.bms.com/assets/bms/us/en-us/www/home/FIFA_bms_hero_desktop.jpg';
+  const FALLBACK_IMAGE = '/drafts/images/FIFA_bms_hero_desktop.jpg';
 
   const rows = block.querySelectorAll(':scope > div');
   if (!rows.length) return;
