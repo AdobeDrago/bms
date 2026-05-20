@@ -1,0 +1,73 @@
+.patient-links {
+  --block-bg: #ffffff;
+  --block-heading-color: #be2bbb;
+  --block-title-color: #be2bbb;
+  --block-text-color: #4f4a4a;
+  --block-link-color: #3312af;
+  --block-padding: 30px 0;
+  --block-gap: 32px;
+
+  background: var(--block-bg);
+  padding: var(--block-padding);
+}
+
+.patient-links > div:first-child h2 {
+  color: var(--block-heading-color);
+  font-size: 38px;
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.patient-links > div:nth-child(2) {
+  border-top: 1px solid #ccc;
+  padding-top: 24px;
+}
+
+.patient-links h3 {
+  color: var(--block-title-color);
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.patient-links p {
+  color: var(--block-text-color);
+  font-size: 16px;
+  line-height: 1.35;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.patient-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.patient-links ul li {
+  margin-bottom: 8px;
+}
+
+.patient-links ul li a {
+  color: var(--block-link-color);
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.patient-links ul li a:hover {
+  color: var(--block-link-color);
+  text-decoration: none;
+}
+
+@media (width >= 900px) {
+  .patient-links > div:nth-child(2) {
+    display: flex;
+    gap: var(--block-gap);
+  }
+
+  .patient-links > div:nth-child(2) > div {
+    flex: 1;
+  }
+}
