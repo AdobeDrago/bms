@@ -4,10 +4,25 @@ const SECTION_HEADINGS = [
   'Looking for answers?',
 ];
 
+// Images for the CTA cards (first instance) — matched by card title keyword
+const CTA_CARD_IMAGES = [
+  { match: /survivorship/i, src: '/drafts/images/common-ground-thumbnail.png', alt: 'Survivorship Today' },
+  { match: /career/i, src: '/drafts/images/lp-sku-11-img-en-us-1638557019143-story.jpg', alt: 'Careers' },
+  // Investors has no image on the source site
+];
+
+function getCtaImage(titleText) {
+  for (const entry of CTA_CARD_IMAGES) {
+    if (entry.match.test(titleText)) return entry;
+  }
+  return null;
+}
+
 export default function decorate(block) {
   // Determine which instance this is (0 = first, 1 = second)
   const allInstances = document.querySelectorAll('.cards-resource');
   const instanceIndex = Array.from(allInstances).indexOf(block);
+  const isCta = instanceIndex === 0;
 
   const rows = [...block.children];
   block.innerHTML = '';
@@ -23,15 +38,31 @@ export default function decorate(block) {
   block.append(heading);
 
   const grid = document.createElement('div');
-  grid.className = `cards-resource-grid cards-resource-grid--${instanceIndex === 0 ? 'cta' : 'links'}`;
+  grid.className = `cards-resource-grid cards-resource-grid--${isCta ? 'cta' : 'links'}`;
 
   rows.forEach((row) => {
     const card = document.createElement('div');
     card.className = 'cards-resource-card';
 
     const cells = [...row.children];
+    const titleText = cells[0] ? cells[0].textContent : '';
 
-    // First div = title (h3)
+    // For CTA cards: inject image above title if available
+    if (isCta) {
+      const imgData = getCtaImage(titleText);
+      if (imgData) {
+        const imgWrapper = document.createElement('div');
+        imgWrapper.className = 'cards-resource-image';
+        const img = document.createElement('img');
+        img.src = imgData.src;
+        img.alt = imgData.alt;
+        img.loading = 'lazy';
+        imgWrapper.append(img);
+        card.append(imgWrapper);
+      }
+    }
+
+    // Title (h3)
     if (cells[0]) {
       const titleDiv = document.createElement('div');
       titleDiv.className = 'cards-resource-title';
@@ -39,7 +70,7 @@ export default function decorate(block) {
       card.append(titleDiv);
     }
 
-    // Second div = description
+    // Description
     if (cells[1]) {
       const descDiv = document.createElement('div');
       descDiv.className = 'cards-resource-description';
