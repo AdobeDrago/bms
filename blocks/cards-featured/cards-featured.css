@@ -1,22 +1,38 @@
 .cards-featured {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
+  gap: 4px;
   padding: 0;
   margin: 0;
 }
 
+/* First block: 3 cards — asymmetric 2-column */
+.cards-featured:nth-of-type(1) {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.cards-featured:nth-of-type(1) .cards-featured-card:nth-child(1) {
+  grid-row: 1 / 3;
+}
+
+/* Second block: 4 cards — 3-column equal */
+.cards-featured:nth-of-type(2) {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Cards */
 .cards-featured .cards-featured-card {
   position: relative;
-  height: 300px;
-  border-radius: 8px;
+  min-height: 260px;
   overflow: hidden;
-  display: block;
+}
+
+.cards-featured:nth-of-type(1) .cards-featured-card:nth-child(1) {
+  min-height: 520px;
 }
 
 .cards-featured .cards-featured-card-link {
   display: block;
-  position: relative;
   width: 100%;
   height: 100%;
   text-decoration: none;
@@ -43,6 +59,11 @@
   z-index: 0;
 }
 
+/* Magenta accent tile (Scientific media resources) */
+.cards-featured .cards-featured-card-placeholder.cards-featured-card-accent {
+  background-color: #be2bbb;
+}
+
 .cards-featured .cards-featured-card-content {
   position: absolute;
   bottom: 0;
@@ -50,12 +71,20 @@
   right: 0;
   z-index: 1;
   padding: 24px 16px 16px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+}
+
+/* Accent tile: show content differently — top-aligned, no gradient */
+.cards-featured .cards-featured-card:has(.cards-featured-card-accent) .cards-featured-card-content {
+  background: none;
+  bottom: auto;
+  top: 0;
+  padding: 24px 20px;
 }
 
 .cards-featured .cards-featured-card-content h3 {
   color: #fff;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 300;
   margin: 0;
   line-height: 1.4;
@@ -65,14 +94,38 @@
   content: " \2192";
 }
 
-.cards-featured .cards-featured-card:hover .cards-featured-card-image,
-.cards-featured .cards-featured-card:hover .cards-featured-card-placeholder {
-  filter: brightness(1.1);
-  transform: scale(1.03);
+/* Accent tile: also show description */
+.cards-featured .cards-featured-card-description {
+  display: none;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+.cards-featured .cards-featured-card:has(.cards-featured-card-accent) .cards-featured-card-description {
+  display: block;
+}
+
+/* Hover */
+.cards-featured .cards-featured-card:hover .cards-featured-card-image {
+  filter: brightness(1.08);
+  transform: scale(1.02);
   transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-.cards-featured .cards-featured-card-image,
-.cards-featured .cards-featured-card-placeholder {
+.cards-featured .cards-featured-card-image {
   transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cards-featured:nth-of-type(1),
+  .cards-featured:nth-of-type(2) {
+    grid-template-columns: 1fr;
+  }
+  .cards-featured:nth-of-type(1) .cards-featured-card:nth-child(1) {
+    grid-row: auto;
+    min-height: 260px;
+  }
 }
