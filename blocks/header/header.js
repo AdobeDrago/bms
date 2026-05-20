@@ -202,6 +202,14 @@ export default async function decorate(block) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
           toggleAllNavSections(navSections);
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          // Show/hide sub-menu via inline style (avoids CSS cache issues)
+          const subUl = navSection.querySelector(':scope > ul');
+          if (subUl) {
+            navSections.querySelectorAll(':scope .default-content-wrapper > ul > li > ul').forEach((u) => {
+              u.style.display = 'none';
+            });
+            if (!expanded) subUl.style.display = 'block';
+          }
         }
       });
     });
@@ -222,6 +230,13 @@ export default async function decorate(block) {
     const ns = nav.querySelector('.nav-sections');
     toggleMenu(nav, ns, isDesktop.matches);
   });
+
+  // Ensure sub-menus are hidden on desktop (defensive: overrides any CSS cache issues)
+  if (isDesktop.matches && navSections) {
+    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li > ul').forEach((subUl) => {
+      subUl.style.display = 'none';
+    });
+  }
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
