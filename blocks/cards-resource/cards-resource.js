@@ -56,7 +56,7 @@ export default function decorate(block) {
         const img = document.createElement('img');
         img.src = imgData.src;
         img.alt = imgData.alt;
-        img.loading = 'lazy';
+        img.loading = "eager";
         imgWrapper.append(img);
         card.append(imgWrapper);
       }
