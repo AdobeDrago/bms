@@ -1,52 +1,112 @@
 .cards-resource {
   background: #fff;
-  padding: 48px 0;
-}
-
-.cards-resource .cards-resource-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  padding: 48px 0 56px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
+/* Section heading */
+.cards-resource .cards-resource-heading {
+  margin-bottom: 24px;
+}
+
+.cards-resource .cards-resource-heading h2 {
+  color: #be2bbb;
+  font-size: 28px;
+  font-weight: 700;
+  font-style: italic;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.cards-resource .cards-resource-heading hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 0 0 24px;
+}
+
+/* CTA grid (first instance: "Defining what's possible") — 3 equal columns */
+.cards-resource .cards-resource-grid--cta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px 40px;
+}
+
+/* Links grid (second instance: "Looking for answers?") — 2-col then full-width */
+.cards-resource .cards-resource-grid--links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 40px;
+}
+
+/* Third card in the links grid spans full width */
+.cards-resource .cards-resource-grid--links .cards-resource-card:nth-child(3) {
+  grid-column: 1;
+}
+
+/* Cards — no box, no background */
 .cards-resource .cards-resource-card {
-  background: #fff;
-  padding: 24px 16px;
+  background: transparent;
+  padding: 0;
 }
 
+/* Title */
 .cards-resource .cards-resource-title h3 {
   color: #be2bbb;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
+  line-height: 1.3;
 }
 
+/* Description */
 .cards-resource .cards-resource-description {
-  color: #444;
+  color: #555;
   font-size: 14px;
   line-height: 1.6;
+  margin-bottom: 12px;
 }
 
+.cards-resource .cards-resource-description p {
+  margin: 0;
+}
+
+/* Links */
 .cards-resource .cards-resource-link {
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
-.cards-resource .cards-resource-link a {
-  display: block;
+.cards-resource .cards-resource-link a:any-link {
+  display: inline;
   color: #3312af;
-  text-decoration: underline;
+  text-decoration: none;
   font-size: 14px;
+  font-weight: 500;
 }
 
-.cards-resource .cards-resource-link a::after {
+.cards-resource .cards-resource-link a:any-link::after {
   content: ' \203A';
+  font-weight: 700;
 }
 
+.cards-resource .cards-resource-link a:hover {
+  text-decoration: underline;
+}
+
+.cards-resource .cards-resource-link p {
+  margin: 0;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .cards-resource .cards-resource-grid {
+  .cards-resource .cards-resource-grid--cta,
+  .cards-resource .cards-resource-grid--links {
     grid-template-columns: 1fr;
+  }
+
+  .cards-resource .cards-resource-grid--links .cards-resource-card:nth-child(3) {
+    grid-column: auto;
   }
 }
