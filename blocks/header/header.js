@@ -112,6 +112,50 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
+const BMS_NAV_FALLBACK = `<div>
+  <p><a href="/"><img src="/drafts/images/logo.svg" alt="Bristol Myers Squibb" width="170" height="40"></a></p>
+</div>
+<div>
+  <ul>
+    <li><a href="/patient-and-caregivers.html">Patients &amp; caregivers</a><ul>
+      <li><a href="/patient-and-caregivers/our-medicines.html">Our medicines</a></li>
+      <li><a href="/patient-and-caregivers/survivorship-today.html">Survivorship Today</a></li>
+      <li><a href="/patient-and-caregivers/patient-resources-by-condition.html">Patient resources</a></li>
+      <li><a href="/patient-and-caregivers/get-help-paying-for-your-medicines.html">Get help paying for your medicines</a></li>
+    </ul></li>
+    <li><a href="/healthcare-providers.html">Healthcare providers</a><ul>
+      <li><a href="/healthcare-providers/early-patient-access-to-investigational-medicine.html">Pre-approval access</a></li>
+      <li><a href="/healthcare-providers/champions-in-care.html">Champions in Care</a></li>
+    </ul></li>
+    <li><a href="/researchers-and-partners.html">Researchers</a><ul>
+      <li><a href="/researchers-and-partners/areas-of-focus.html">Areas of focus</a></li>
+      <li><a href="/researchers-and-partners/in-the-pipeline.html">In the pipeline</a></li>
+      <li><a href="/researchers-and-partners/clinical-trials-and-research.html">Clinical trials &amp; research</a></li>
+    </ul></li>
+    <li><a href="/investors.html">Investors</a><ul>
+      <li><a href="/investors/stock-information.html">Stock information</a></li>
+      <li><a href="/investors/financial-reporting.html">Financial reporting</a></li>
+      <li><a href="/investors/events-and-presentations.html">Events and presentations</a></li>
+    </ul></li>
+    <li><a href="/business-development.html">Business development</a><ul>
+      <li><a href="/business-development/existing-partners.html">Our partnerships</a></li>
+      <li><a href="/business-development/why-partner-with-us.html">Why partner with us</a></li>
+    </ul></li>
+    <li><a href="/media.html">News &amp; media</a><ul>
+      <li><a href="/media/press-releases.html">Press releases</a></li>
+      <li><a href="/life-and-science.html">Our stories</a></li>
+      <li><a href="/media/media-contacts.html">Media contacts</a></li>
+    </ul></li>
+    <li><a href="/about-us.html">About us</a><ul>
+      <li><a href="/about-us/our-company.html">Our company</a></li>
+      <li><a href="/about-us/leadership.html">Leadership</a></li>
+      <li><a href="/about-us/our-science.html">Our science</a></li>
+      <li><a href="/about-us/contact-us.html">Contact us</a></li>
+    </ul></li>
+  </ul>
+</div>
+<div><p><a href="/about-us/contact-us.html">Contact us</a> | <a href="https://careers.bms.com">Careers</a></p></div>`;
+
 export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
@@ -122,7 +166,18 @@ export default async function decorate(block) {
   block.textContent = '';
   const nav = document.createElement('nav');
   nav.id = 'nav';
-  while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
+
+  // If fragment is empty (content source not yet set up), use fallback nav
+  const isEmpty = !fragment.firstElementChild
+    || (fragment.children.length === 1 && !fragment.firstElementChild.textContent.trim()
+        && !fragment.firstElementChild.querySelector('a, img'));
+  if (isEmpty) {
+    const tmp = document.createElement('div');
+    tmp.innerHTML = BMS_NAV_FALLBACK;
+    while (tmp.firstElementChild) nav.append(tmp.firstElementChild);
+  } else {
+    while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
+  }
 
   const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
