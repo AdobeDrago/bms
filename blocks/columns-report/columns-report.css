@@ -1,0 +1,114 @@
+.columns-report {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.columns-report > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  min-height: 500px;
+}
+
+/* Left cell — image */
+.columns-report > div > div:first-child {
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+}
+
+.columns-report > div > div:first-child picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.columns-report > div > div:first-child picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Right cell — content card */
+.columns-report > div > div:last-child {
+  background-color: #f0efea;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  min-height: 500px;
+}
+
+.columns-report-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.columns-report-year {
+  color: #be2bbb;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.columns-report-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.columns-report-subtitle {
+  font-size: 20px;
+  color: #333;
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.columns-report-cta {
+  margin: 8px 0 0;
+}
+
+.columns-report-cta a {
+  display: inline-block;
+  background-color: #be2bbb;
+  color: #fff;
+  border-radius: 24px;
+  padding: 10px 24px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.columns-report-cta a:hover {
+  background-color: #a0239f;
+}
+
+/* Responsive: stack vertically below 768px */
+@media (max-width: 768px) {
+  .columns-report > div {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .columns-report > div > div:first-child {
+    min-height: 300px;
+  }
+
+  .columns-report > div > div:last-child {
+    min-height: auto;
+    padding: 40px 24px;
+  }
+}
