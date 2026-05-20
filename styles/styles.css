@@ -309,6 +309,20 @@ main > .section {
   margin: 40px 0;
 }
 
+/* Hide OneTrust cookie preference content that was accidentally authored into the document */
+#cookie-preference-center,
+#cookie-preference-center ~ *,
+h2#cookie-preference-center-1,
+h2#cookie-preference-center-1 ~ * {
+  display: none !important;
+}
+
+/* Hide the company logo image block that precedes the cookie section */
+.default-content-wrapper p:has(img[alt="Company Logo"]),
+.default-content-wrapper p:has(img[alt="Company Logo"]) ~ * {
+  display: none !important;
+}
+
 main > .section > div {
   max-width: 1200px;
   margin: auto;
