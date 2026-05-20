@@ -229,6 +229,11 @@ header nav .nav-sections a:hover {
     align-self: unset;
   }
 
+  /* At desktop, always hide mobile sub-menus — only show via li[aria-expanded=true] */
+  header nav[aria-expanded='true'] .nav-sections .default-content-wrapper > ul > li > ul {
+    display: none;
+  }
+
   header nav .nav-sections .default-content-wrapper > ul {
     display: flex;
     gap: 2px;
