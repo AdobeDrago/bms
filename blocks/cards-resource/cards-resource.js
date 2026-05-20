@@ -8,7 +8,7 @@ const SECTION_HEADINGS = [
 const CTA_CARD_IMAGES = [
   { match: /survivorship/i, src: '/drafts/images/common-ground-thumbnail.png', alt: 'Survivorship Today' },
   { match: /career/i, src: '/drafts/images/lp-sku-11-img-en-us-1638557019143-story.jpg', alt: 'Careers' },
-  // Investors has no image on the source site
+  { match: /investor/i, src: '/drafts/images/bms-130-nyse-147-story.jpg', alt: 'Investors' },
 ];
 
 function getCtaImage(titleText) {
