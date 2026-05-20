@@ -68,6 +68,14 @@ export default function decorate(block) {
     overlay.classList.add('cards-featured-card-content');
     if (h3) overlay.appendChild(h3.cloneNode(true));
 
+    // For accent tile, also add description text
+    if (title.toLowerCase().includes('scientific')) {
+      const desc = document.createElement('p');
+      desc.className = 'cards-featured-card-description';
+      desc.textContent = 'Our scientists are chasing the next generation of treatment options for patients. Explore the ways we\u2019re accelerating the development of new medicines with differentiated research platforms and a multitude of treatment modalities.';
+      overlay.appendChild(desc);
+    }
+
     row.appendChild(overlay);
 
     // Make entire card clickable
