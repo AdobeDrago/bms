@@ -60,7 +60,7 @@ function focusNavSection() {
  */
 function toggleAllNavSections(sections, expanded = false) {
   if (!sections) return;
-  sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
+  sections.querySelectorAll('.default-content-wrapper > ul > li, :scope > ul > li').forEach((section) => {
     section.setAttribute('aria-expanded', expanded);
   });
 }
@@ -194,26 +194,28 @@ export default async function decorate(block) {
 
   // Re-query navSections after potential fallback injection
   const navSections = nav.querySelector('.nav-sections');
-  if (navSections) {
-    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
-        if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-          // Show/hide sub-menu via inline style (avoids CSS cache issues)
-          const subUl = navSection.querySelector(':scope > ul');
-          if (subUl) {
-            navSections.querySelectorAll(':scope .default-content-wrapper > ul > li > ul').forEach((u) => {
-              u.style.display = 'none';
-            });
-            if (!expanded) subUl.style.display = 'block';
-          }
-        }
-      });
+  // Support both EDS-decorated (default-content-wrapper) and raw fallback nav structures
+  const navTopItems = navSections
+    ? navSections.querySelectorAll(':scope .default-content-wrapper > ul > li, :scope > ul > li')
+    : [];
+  const allSubMenus = navSections
+    ? navSections.querySelectorAll(':scope .default-content-wrapper > ul > li > ul, :scope > ul > li > ul')
+    : [];
+
+  navTopItems.forEach((navSection) => {
+    if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+    navSection.addEventListener('click', () => {
+      if (isDesktop.matches) {
+        const expanded = navSection.getAttribute('aria-expanded') === 'true';
+        toggleAllNavSections(navSections);
+        navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        // Hide all sub-menus, then show clicked one if opening
+        allSubMenus.forEach((u) => { u.style.display = 'none'; });
+        const subUl = navSection.querySelector(':scope > ul');
+        if (subUl && !expanded) subUl.style.display = 'block';
+      }
     });
-  }
+  });
 
   // hamburger for mobile
   const hamburger = document.createElement('div');
@@ -221,7 +223,11 @@ export default async function decorate(block) {
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
       <span class="nav-hamburger-icon"></span>
     </button>`;
-  hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
+  hamburger.addEventListener('click', () => {
+    toggleMenu(nav, navSections);
+    // On mobile open, show sub-menus (they'll be toggled by CSS/aria)
+    if (!isDesktop.matches) allSubMenus.forEach((u) => { u.style.display = ''; });
+  });
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
   // prevent mobile nav behavior on window resize
@@ -231,11 +237,9 @@ export default async function decorate(block) {
     toggleMenu(nav, ns, isDesktop.matches);
   });
 
-  // Ensure sub-menus are hidden on desktop (defensive: overrides any CSS cache issues)
-  if (isDesktop.matches && navSections) {
-    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li > ul').forEach((subUl) => {
-      subUl.style.display = 'none';
-    });
+  // Ensure sub-menus are hidden on desktop via inline style (overrides CSS cache)
+  if (isDesktop.matches) {
+    allSubMenus.forEach((subUl) => { subUl.style.display = 'none'; });
   }
 
   const navWrapper = document.createElement('div');
