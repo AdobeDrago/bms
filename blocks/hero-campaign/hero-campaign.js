@@ -10,18 +10,31 @@ export default function decorate(block) {
   const imageCell = cells[0];
   const textCell = cells[1];
 
-  // Determine background image
-  let bgImage = FALLBACK_IMAGE;
-  const img = imageCell ? imageCell.querySelector('img') : null;
-  if (img && img.src) bgImage = img.src;
+  // Determine image source
+  let imgSrc = FALLBACK_IMAGE;
+  let imgAlt = 'We Won\'t Lose — Bristol Myers Squibb';
+  const sourceImg = imageCell ? imageCell.querySelector('img') : null;
+  if (sourceImg && sourceImg.src) {
+    imgSrc = sourceImg.src;
+    imgAlt = sourceImg.alt || imgAlt;
+  }
 
-  // Build final HTML structure
+  // Build HTML structure
   block.innerHTML = '';
 
   const bgContainer = document.createElement('div');
   bgContainer.className = 'hero-campaign-background';
-  bgContainer.style.backgroundImage = `url('${bgImage}')`;
 
+  // Hero image: positioned absolutely on the right
+  const heroImg = document.createElement('img');
+  heroImg.className = 'hero-campaign-img';
+  heroImg.src = imgSrc;
+  heroImg.alt = imgAlt;
+  heroImg.loading = 'eager';
+  heroImg.fetchpriority = 'high';
+  bgContainer.appendChild(heroImg);
+
+  // Text overlay
   const overlay = document.createElement('div');
   overlay.className = 'hero-campaign-overlay';
 
@@ -29,14 +42,11 @@ export default function decorate(block) {
   textContainer.className = 'hero-campaign-text';
 
   if (textCell) {
-    // Try to split combined h2 text into headline + body
-    // Document merges "We Won't Lose" + body text into one h2
-    // Split at the second sentence boundary
     const rawH = textCell.querySelector('h1, h2, h3');
     if (rawH) {
       const fullText = rawH.textContent || '';
       // BMS pattern: "We Won't Lose" is the short headline; rest is body
-      const splitPattern = /^(We Won['']t Lose)\s*(.*)/si;
+      const splitPattern = /^(We Won['\u2019]t Lose)\s*(.*)/si;
       const match = fullText.match(splitPattern);
       if (match) {
         const headline = document.createElement('h2');
@@ -46,7 +56,6 @@ export default function decorate(block) {
         textContainer.appendChild(headline);
         textContainer.appendChild(body);
       } else {
-        // No known split pattern — use as-is
         textContainer.innerHTML = textCell.innerHTML;
       }
     } else {
