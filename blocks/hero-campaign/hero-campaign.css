@@ -59,7 +59,7 @@
   z-index: 2;
   display: flex;
   align-items: flex-end;
-  padding: 0 32px 48px;
+  padding: 0;
   box-sizing: border-box;
   pointer-events: none;
 }
@@ -68,19 +68,15 @@
   pointer-events: auto;
 }
 
-@media (width >= 1264px) {
-  .hero-campaign .hero-campaign-overlay {
-    padding-left: calc((100vw - 1264px) / 2 + 48px);
-  }
-}
-
 .hero-campaign .hero-campaign-text {
-  max-width: 460px;
+  max-width: 540px;
+  padding: 50px 32px 80px 60px;
+  box-sizing: border-box;
 }
 
 /* Headline */
 .hero-campaign .hero-campaign-text h2 {
-  font-size: 42px;
+  font-size: 48px;
   line-height: 1.1;
   margin: 0 0 12px;
   color: #1a1a1a;
