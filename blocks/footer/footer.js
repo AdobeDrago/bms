@@ -1,4 +1,4 @@
-import { getMetadata } from '../../scripts/aem.js';
+import { getMetadata, decorateIcons } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 const BMS_FOOTER_FALLBACK = `<div>
@@ -89,4 +89,6 @@ export default async function decorate(block) {
   }
 
   block.append(footer);
+  // Decorate icon spans injected by fallback HTML
+  decorateIcons(block);
 }
