@@ -1,61 +1,105 @@
-.cards-featured {
-  display: grid;
-  gap: 4px;
+/* ── Cards Featured — BMS Explore BMS section ── */
+
+/* Section heading "Explore BMS" — magenta, italic, thin weight */
+.cards-featured-wrapper ~ .cards-featured-wrapper,
+.cards-featured-wrapper {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Put "Explore BMS" h2 in proper BMS style — styled via styles.css default-content-wrapper */
+
+/* Outer wrapper: remove any container padding */
+.section .cards-featured-wrapper {
   padding: 0;
   margin: 0;
 }
 
-/* First block: 3 cards — asymmetric 2-column */
+/* ─── Block ─── */
+.cards-featured {
+  display: grid;
+  gap: 3px;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* ─── First block: 3-col horizontal equal grid ─── */
 .cards-featured:nth-of-type(1) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ─── Second block: 2-col asymmetric left-tall + right-stacked ─── */
+.cards-featured:nth-of-type(2) {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
 }
 
-.cards-featured:nth-of-type(1) .cards-featured-card:nth-child(1) {
+/* First card in block 2 — spans 2 rows (tall left panel) */
+.cards-featured:nth-of-type(2) .cards-featured-card:nth-child(1) {
   grid-row: 1 / 3;
 }
 
-/* Second block: 4 cards — 3-column equal */
-.cards-featured:nth-of-type(2) {
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-/* Cards */
+/* ─── Cards ─── */
 .cards-featured .cards-featured-card {
   position: relative;
   min-height: 260px;
   overflow: hidden;
+  background: #1a1a1a;
 }
 
-.cards-featured:nth-of-type(1) .cards-featured-card:nth-child(1) {
+/* First block cards — shorter (horizontal browse) */
+.cards-featured:nth-of-type(1) .cards-featured-card {
+  min-height: 240px;
+}
+
+/* Tall card in block 2 */
+.cards-featured:nth-of-type(2) .cards-featured-card:nth-child(1) {
   min-height: 520px;
 }
 
-.cards-featured .cards-featured-card-link {
-  display: block;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
+/* Short cards in block 2 (right col) */
+.cards-featured:nth-of-type(2) .cards-featured-card:nth-child(2),
+.cards-featured:nth-of-type(2) .cards-featured-card:nth-child(3) {
+  min-height: 260px;
 }
 
+/* 4th card in block 2 — hide (Annual Report is separate feature block below) */
+.cards-featured:nth-of-type(2) .cards-featured-card:nth-child(4) {
+  display: none;
+}
+
+/* ─── Card link wrapper ─── */
+.cards-featured .cards-featured-card-link {
+  display: block;
+  position: absolute;
+  inset: 0;
+  text-decoration: none;
+  color: inherit;
+  z-index: 2;
+}
+
+/* ─── Card image ─── */
 .cards-featured .cards-featured-card-image {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   z-index: 0;
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
+.cards-featured .cards-featured-card:hover .cards-featured-card-image {
+  transform: scale(1.04);
+  filter: brightness(1.1);
+}
+
+/* ─── Placeholder (no image) ─── */
 .cards-featured .cards-featured-card-placeholder {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #e0e0e0;
+  inset: 0;
+  background-color: #555;
   z-index: 0;
 }
 
@@ -64,68 +108,80 @@
   background-color: #be2bbb;
 }
 
+/* ─── Card content overlay (text + arrow) ─── */
 .cards-featured .cards-featured-card-content {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 1;
-  padding: 24px 16px 16px;
-  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+  padding: 48px 16px 16px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.3) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
-/* Accent tile: show content differently — top-aligned, no gradient */
+/* Accent tile: top-aligned, no gradient bg */
 .cards-featured .cards-featured-card:has(.cards-featured-card-accent) .cards-featured-card-content {
   background: none;
   bottom: auto;
   top: 0;
-  padding: 24px 20px;
+  padding: 20px 18px;
 }
 
+/* Card title */
 .cards-featured .cards-featured-card-content h3 {
   color: #fff;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 300;
   margin: 0;
   line-height: 1.4;
 }
 
+/* Arrow after title */
 .cards-featured .cards-featured-card-content h3::after {
   content: " \2192";
 }
 
-/* Accent tile: also show description */
+/* Description text — only for accent tile */
 .cards-featured .cards-featured-card-description {
   display: none;
   color: #fff;
   font-size: 13px;
   line-height: 1.5;
   margin-top: 10px;
+  font-weight: 300;
 }
 
 .cards-featured .cards-featured-card:has(.cards-featured-card-accent) .cards-featured-card-description {
   display: block;
 }
 
-/* Hover */
-.cards-featured .cards-featured-card:hover .cards-featured-card-image {
-  filter: brightness(1.08);
-  transform: scale(1.02);
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.cards-featured .cards-featured-card-image {
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-/* Responsive */
+/* ─── Responsive ─── */
 @media (max-width: 768px) {
   .cards-featured:nth-of-type(1),
   .cards-featured:nth-of-type(2) {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
-  .cards-featured:nth-of-type(1) .cards-featured-card:nth-child(1) {
+
+  .cards-featured:nth-of-type(2) .cards-featured-card:nth-child(1) {
     grid-row: auto;
-    min-height: 260px;
+  }
+
+  .cards-featured:nth-of-type(2) .cards-featured-card:nth-child(4) {
+    display: block;
+  }
+
+  .cards-featured .cards-featured-card,
+  .cards-featured:nth-of-type(1) .cards-featured-card,
+  .cards-featured:nth-of-type(2) .cards-featured-card:nth-child(1),
+  .cards-featured:nth-of-type(2) .cards-featured-card:nth-child(2),
+  .cards-featured:nth-of-type(2) .cards-featured-card:nth-child(3) {
+    min-height: 240px;
   }
 }
