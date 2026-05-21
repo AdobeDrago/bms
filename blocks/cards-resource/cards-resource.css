@@ -34,28 +34,18 @@
   margin: 0 0 24px;
 }
 
-/* ─── CTA grid: "Defining what's possible" — 2-col then 3rd row ─── */
+/* ─── CTA grid: "Defining what's possible" — 3-col ─── */
 .cards-resource .cards-resource-grid--cta {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 32px 48px;
 }
 
-/* Third card (Investors) — starts in col 1 on its own row */
-.cards-resource .cards-resource-grid--cta .cards-resource-card:nth-child(3) {
-  grid-column: 1;
-}
-
-/* ─── Links grid: "Looking for answers?" — 2-col ─── */
+/* ─── Links grid: "Looking for answers?" — 3-col ─── */
 .cards-resource .cards-resource-grid--links {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 28px 48px;
-}
-
-/* Third card in links grid — full row (starts col 1) */
-.cards-resource .cards-resource-grid--links .cards-resource-card:nth-child(3) {
-  grid-column: 1;
 }
 
 /* ─── Cards ─── */
@@ -113,7 +103,14 @@
 }
 
 /* ─── Responsive ─── */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .cards-resource .cards-resource-grid--cta,
+  .cards-resource .cards-resource-grid--links {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
   .cards-resource {
     padding: 40px 20px;
   }
@@ -121,10 +118,5 @@
   .cards-resource .cards-resource-grid--cta,
   .cards-resource .cards-resource-grid--links {
     grid-template-columns: 1fr;
-  }
-
-  .cards-resource .cards-resource-grid--cta .cards-resource-card:nth-child(3),
-  .cards-resource .cards-resource-grid--links .cards-resource-card:nth-child(3) {
-    grid-column: auto;
   }
 }
