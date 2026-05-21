@@ -15,36 +15,58 @@
   background: #fff;
 }
 
-/* The background image is positioned to the right half,
-   leaving a white area on the left for text — matching bms.com */
+/* Hero container: aspect-ratio 2:1, matches bms.com data-image-ar-desk="2" */
 .hero-campaign .hero-campaign-background {
   position: relative;
   width: 100%;
-  /* Aspect ratio 2:1 like bms.com hero */
   aspect-ratio: 2 / 1;
-  min-height: 380px;
-  background-size: 60% auto;
-  background-position: right center;
-  background-repeat: no-repeat;
+  min-height: 320px;
   background-color: #fff;
+  overflow: hidden;
 }
 
-/* Overlay: fade from white (left) to transparent (right) */
-.hero-campaign .hero-campaign-overlay {
+/* Hero image: actual <img> element positioned on the right half */
+.hero-campaign .hero-campaign-img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 0;
+}
+
+/* Fade gradient: white on the left blending into transparent on the right */
+.hero-campaign .hero-campaign-background::after {
+  content: '';
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(
     to right,
     #ffffff 0%,
-    #ffffff 25%,
-    rgba(255, 255, 255, 0.85) 40%,
-    rgba(255, 255, 255, 0.4) 55%,
-    transparent 70%
+    #ffffff 28%,
+    rgba(255, 255, 255, 0.9) 40%,
+    rgba(255, 255, 255, 0.5) 52%,
+    transparent 65%
   );
+}
+
+/* Text overlay: sits above the gradient */
+.hero-campaign .hero-campaign-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
   display: flex;
   align-items: flex-end;
-  padding: 0 32px 56px;
+  padding: 0 32px 48px;
   box-sizing: border-box;
+  pointer-events: none;
+}
+
+.hero-campaign .hero-campaign-overlay > * {
+  pointer-events: auto;
 }
 
 @media (width >= 1264px) {
@@ -54,22 +76,20 @@
 }
 
 .hero-campaign .hero-campaign-text {
-  max-width: 440px;
-  color: #fff;
+  max-width: 460px;
 }
 
-/* Headline — large, light weight, dark on white bg */
+/* Headline */
 .hero-campaign .hero-campaign-text h2 {
-  font-size: 40px;
+  font-size: 42px;
   line-height: 1.1;
   margin: 0 0 12px;
-  /* Dark text on light left side */
   color: #1a1a1a;
   font-weight: 400;
   letter-spacing: -0.01em;
 }
 
-/* Body copy — smaller, dark on white bg */
+/* Body copy */
 .hero-campaign .hero-campaign-text p {
   font-size: 15px;
   line-height: 1.6;
@@ -98,28 +118,28 @@
 @media (max-width: 768px) {
   .hero-campaign .hero-campaign-background {
     aspect-ratio: 1 / 1;
-    background-size: cover;
-    background-position: center right;
   }
 
-  .hero-campaign .hero-campaign-overlay {
+  .hero-campaign .hero-campaign-img {
+    width: 100%;
+    object-position: center top;
+  }
+
+  .hero-campaign .hero-campaign-background::after {
     background: linear-gradient(
       to top,
       rgba(255, 255, 255, 0.95) 0%,
       rgba(255, 255, 255, 0.85) 40%,
       transparent 80%
     );
+  }
+
+  .hero-campaign .hero-campaign-overlay {
     align-items: flex-end;
     padding: 24px 20px 32px;
   }
 
   .hero-campaign .hero-campaign-text h2 {
     font-size: 28px;
-    color: #1a1a1a;
-  }
-
-  .hero-campaign .hero-campaign-text p {
-    font-size: 14px;
-    color: #333;
   }
 }
