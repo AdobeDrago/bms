@@ -1,67 +1,81 @@
 /* ── Hero Campaign — matches bms.com hero banner ── */
+
+/* Full-bleed wrapper — override EDS section max-width */
+.hero-campaign-wrapper {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .hero-campaign {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+  width: 100%;
   padding: 0;
   overflow: hidden;
   position: relative;
   z-index: 0;
+  background: #fff;
 }
 
+/* The background image is positioned to the right half,
+   leaving a white area on the left for text — matching bms.com */
 .hero-campaign .hero-campaign-background {
   position: relative;
   width: 100%;
-  height: 500px;
-  background-size: cover;
-  background-position: center top;
+  /* Aspect ratio 2:1 like bms.com hero */
+  aspect-ratio: 2 / 1;
+  min-height: 380px;
+  max-height: 520px;
+  background-size: 60% auto;
+  background-position: right center;
   background-repeat: no-repeat;
+  background-color: #fff;
 }
 
-/* Left-side gradient so white text is legible */
+/* Overlay: fade from white (left) to transparent (right) */
 .hero-campaign .hero-campaign-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.60) 0%,
-    rgba(0, 0, 0, 0.30) 45%,
+    #ffffff 0%,
+    #ffffff 25%,
+    rgba(255, 255, 255, 0.85) 40%,
+    rgba(255, 255, 255, 0.4) 55%,
     transparent 70%
   );
   display: flex;
   align-items: flex-end;
-  padding: 0 32px 48px;
-  /* Align text to max-width center */
+  padding: 0 32px 56px;
   box-sizing: border-box;
 }
 
 @media (width >= 1264px) {
   .hero-campaign .hero-campaign-overlay {
-    padding-left: calc((100vw - 1264px) / 2 + 32px);
-    padding-right: calc((100vw - 1264px) / 2 + 32px);
+    padding-left: calc((100vw - 1264px) / 2 + 48px);
   }
 }
 
 .hero-campaign .hero-campaign-text {
-  max-width: 480px;
+  max-width: 440px;
   color: #fff;
 }
 
-/* Headline — large, light weight, white */
+/* Headline — large, light weight, dark on white bg */
 .hero-campaign .hero-campaign-text h2 {
   font-size: 40px;
   line-height: 1.1;
   margin: 0 0 12px;
-  color: #fff;
+  /* Dark text on light left side */
+  color: #1a1a1a;
   font-weight: 400;
   letter-spacing: -0.01em;
 }
 
-/* Body copy — smaller, regular weight */
+/* Body copy — smaller, dark on white bg */
 .hero-campaign .hero-campaign-text p {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.6;
   margin: 0 0 20px;
-  color: #fff;
+  color: #333;
 }
 
 /* CTA link — magenta pill button */
@@ -83,8 +97,30 @@
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
-  .hero-campaign .hero-campaign-background { height: 380px; }
-  .hero-campaign .hero-campaign-overlay { padding: 24px 20px 32px; }
-  .hero-campaign .hero-campaign-text h2 { font-size: 26px; }
-  .hero-campaign .hero-campaign-text p { font-size: 14px; }
+  .hero-campaign .hero-campaign-background {
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center right;
+  }
+
+  .hero-campaign .hero-campaign-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.85) 40%,
+      transparent 80%
+    );
+    align-items: flex-end;
+    padding: 24px 20px 32px;
+  }
+
+  .hero-campaign .hero-campaign-text h2 {
+    font-size: 28px;
+    color: #1a1a1a;
+  }
+
+  .hero-campaign .hero-campaign-text p {
+    font-size: 14px;
+    color: #333;
+  }
 }
