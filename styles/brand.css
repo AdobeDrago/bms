@@ -1,13 +1,59 @@
+/* BMS Brand Tokens */
 :root {
+  /* Typography */
   --heading-font-family: "BMSHumanity", "Outfit", sans-serif;
   --body-font-family: "BMSHumanity", "Outfit", sans-serif;
+
+  /* Brand Colors */
+  --color-magenta: #be2bbb;
+  --color-magenta-dark: #9a2298;
+  --color-text: #333333;
+  --color-text-muted: #595454;
+  --color-text-light: #767676;
+  --color-link: #be2bbb;
+  --color-link-hover: #9a2298;
+  --color-bg: #ffffff;
+  --color-bg-warm: #f0efea;
+  --color-bg-light: #f5f5f5;
+  --color-border: #e8e8e8;
+
+  /* Layout */
+  --content-max-width: 1264px;
+  --content-padding: 0 32px;
+  --section-gap: 0;
+
+  /* EDS overrides */
   --background-color: #ffffff;
-  --text-color: #000000;
-  --link-color: #0000ee;
-  --link-hover-color: #0000cc;
-  --section-padding: 0px;
-  --nav-height: 60px;
-  --highlight-background: rgb(240, 239, 234);
+  --light-color: #f0efea;
+  --dark-color: #595454;
+  --text-color: #333333;
+  --link-color: #be2bbb;
+  --link-hover-color: #9a2298;
+  --nav-height: 94px;
+
+  --body-font-size-m: 16px;
+  --body-font-size-s: 14px;
+  --body-font-size-xs: 13px;
+
+  --heading-font-size-xxl: 48px;
+  --heading-font-size-xl: 38px;
+  --heading-font-size-l: 28px;
+  --heading-font-size-m: 22px;
+  --heading-font-size-s: 18px;
+  --heading-font-size-xs: 16px;
 }
 
 html, body { overflow: auto !important; }
+
+/* Section max-width centering — global */
+main > .section > div {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--content-padding);
+}
+
+/* Remove default section margins */
+main > .section {
+  margin: 0;
+  padding: 0;
+}
