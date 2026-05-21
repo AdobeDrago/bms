@@ -181,18 +181,20 @@ main > .section:has(.cards-featured) > div {
 /* ── Section heading blocks before cards ── */
 main > .section > .default-content-wrapper h2 {
   color: var(--link-color);
+  font-size: 44px;
   font-weight: 300;
-  font-style: italic;
-  margin-top: 24px;
-  margin-bottom: 8px;
+  font-style: normal;
+  margin-top: 60px;
+  margin-bottom: 12px;
 }
 
 main > .section > div > .default-content-wrapper h2 {
   color: var(--link-color);
+  font-size: 44px;
   font-weight: 300;
-  font-style: italic;
-  margin-top: 24px;
-  margin-bottom: 8px;
+  font-style: normal;
+  margin-top: 60px;
+  margin-bottom: 12px;
 }
 
 /* ── Warm-beige background sections ── */
