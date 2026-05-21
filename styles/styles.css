@@ -309,6 +309,11 @@ main > .section {
   margin: 40px 0;
 }
 
+/* Hide the page H1 title — visually replaced by the hero banner on the home page */
+h1#global-biopharmaceutical-company---bristol-myers-squibb {
+  display: none !important;
+}
+
 /* Hide OneTrust cookie preference content that was accidentally authored into the document */
 #cookie-preference-center,
 #cookie-preference-center ~ *,
