@@ -6,7 +6,7 @@
   padding: 0 !important;
 }
 
-/* ─── Block ─── */
+/* ─── Block (shared) ─── */
 .cards-featured {
   display: grid;
   gap: 3px;
@@ -15,38 +15,39 @@
   width: 100%;
 }
 
-/* ─── BLOCK 1: 3-col horizontal equal grid ─── */
-/* First wrapper (no preceding sibling wrapper) */
+/* ─── BLOCK 1: 2-col asymmetric
+   Financial results (tall left, spans both rows) |  Book's story (top right)
+                                                  |  Champions in care (btm right)
+───────────────────────────────────────────────── */
 .cards-featured-wrapper:not(.cards-featured-wrapper ~ .cards-featured-wrapper) .cards-featured {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.cards-featured-wrapper:not(.cards-featured-wrapper ~ .cards-featured-wrapper) .cards-featured .cards-featured-card {
-  min-height: 240px;
-}
-
-/* ─── BLOCK 2: 2-col asymmetric left-tall + right-stacked ─── */
-/* Second wrapper (preceded by a sibling wrapper) */
-.cards-featured-wrapper ~ .cards-featured-wrapper .cards-featured {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
 }
 
-/* First card in block 2 — spans 2 rows (tall left panel) */
-.cards-featured-wrapper ~ .cards-featured-wrapper .cards-featured-card:nth-child(1) {
+/* Card 1: tall left, spans 2 rows */
+.cards-featured-wrapper:not(.cards-featured-wrapper ~ .cards-featured-wrapper) .cards-featured-card:nth-child(1) {
   grid-row: 1 / 3;
   min-height: 520px;
 }
 
-/* Short cards in block 2 (right col) */
-.cards-featured-wrapper ~ .cards-featured-wrapper .cards-featured-card:nth-child(2),
-.cards-featured-wrapper ~ .cards-featured-wrapper .cards-featured-card:nth-child(3) {
+/* Cards 2 & 3: short stacked on right */
+.cards-featured-wrapper:not(.cards-featured-wrapper ~ .cards-featured-wrapper) .cards-featured-card:nth-child(2),
+.cards-featured-wrapper:not(.cards-featured-wrapper ~ .cards-featured-wrapper) .cards-featured-card:nth-child(3) {
   min-height: 260px;
 }
 
-/* 4th card in block 2 — hide (Annual Report is separate feature block below) */
-.cards-featured-wrapper ~ .cards-featured-wrapper .cards-featured-card:nth-child(4) {
-  display: none;
+/* ─── BLOCK 2: 4-col layout
+   Jean-Michel | Devens | Scientific media (magenta) | Annual Report
+   (first two share the left half, last two share the right half)
+───────────────────────────────────────────────── */
+.cards-featured-wrapper ~ .cards-featured-wrapper .cards-featured {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+}
+
+/* All 4 cards equal height in block 2 */
+.cards-featured-wrapper ~ .cards-featured-wrapper .cards-featured-card {
+  min-height: 320px;
 }
 
 /* ─── Cards (shared) ─── */
@@ -151,20 +152,18 @@
 
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
+  /* All blocks: single column on mobile */
   .cards-featured {
     grid-template-columns: 1fr !important;
     grid-template-rows: auto !important;
   }
 
-  .cards-featured-wrapper ~ .cards-featured-wrapper .cards-featured-card:nth-child(1) {
+  /* Reset the row span on mobile */
+  .cards-featured-wrapper:not(.cards-featured-wrapper ~ .cards-featured-wrapper) .cards-featured-card:nth-child(1) {
     grid-row: auto;
   }
 
-  /* Show all cards on mobile */
-  .cards-featured-wrapper ~ .cards-featured-wrapper .cards-featured-card:nth-child(4) {
-    display: block;
-  }
-
+  /* All cards same height on mobile */
   .cards-featured .cards-featured-card {
     min-height: 240px !important;
   }
